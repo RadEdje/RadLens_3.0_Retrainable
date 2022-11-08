@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../../DOCUMENTS_FREE/EDX TFJS course"
+		},
+		{
+			"path": "../../RadLens2.0"
+		},
+		{
+			"path": "../../../CONTROLLED_FOLDER_ACCESS/UBUNTU/My_WEB_PROJECTS/HorizonComingSoonTemplateBuilder_v1/HorizonComingSoonTemplateBuilder_v1.0/HorizonTemplate_v1.0"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "RadLens_AI_Customizable and Retrainable"
+	}
+}

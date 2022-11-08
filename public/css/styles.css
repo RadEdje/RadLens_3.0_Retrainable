@@ -1,0 +1,836 @@
+/* css file for
+Radlense2 
+
+
+
+
+AUTHOR: ERWIN JOHN T. CARPIO
+*/
+
+
+
+
+a {
+    color: #2c87f0;
+}
+
+a:visited {
+    color: rgb(175, 113, 175);
+}
+
+a:hover,
+a:active,
+a:focus {
+    color: #c33;
+}
+
+
+
+
+div,
+select {
+    transition-delay: 0ms;
+    transition-duration: 600ms;
+    transition-property: all;
+    transition-timing-function: ease-in-out;
+}
+
+p {
+    transition-delay: 0ms;
+    transition-duration: 600ms;
+    transition-property: all;
+    transition-timing-function: ease-in-out;
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
+sup {
+    font-size: 0.55rem;
+}
+
+/* HEADER BAR */
+
+.header {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: center;
+    align-items: stretch;
+    z-index: 10;
+    top: 0px;
+    left: 0px;
+    height: 3.5rem;
+    width: 100vw;
+    background: rgb(48, 63, 159, 1);
+    color: white;
+}
+
+.header--hide {
+    transform: translate(0, -100%);
+}
+
+.headerLeft {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+    flex: 6 0 10%;
+    padding: 0 0 0 1rem;
+    text-align: center;
+}
+
+.headerLeft>p {
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+}
+
+.headerRight {
+    flex: 4 0 10%;
+    padding: 0 1.5rem 0 0;
+    width: 50%;
+    text-align: right;
+}
+
+.headerRight_options>i {
+    font-size: 1.25rem;
+    margin: 1rem 0 0 0;
+}
+
+.share__btns {
+    position: absolute;
+    z-index: 5;
+    top: 3rem;
+    right: 0.5rem;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    width: 8rem;
+    height: 5rem;
+    background-color: white;
+    border-radius: 5px 5px 5px 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-around;
+    align-items: flex-start;
+    overflow: hidden;
+}
+
+.share__btns--hidden {
+    width: 0px;
+    height: 0px;
+}
+
+.dimmer {
+    position: fixed;
+    z-index: 10;
+    background-color: rgb(0, 0, 0);
+    opacity: 0.8;
+    width: 100vw;
+    height: 100vh;
+    transition: 700ms linear 0s opacity;
+}
+
+.dimmer--hide {
+    z-index: -10;
+    opacity: 0.1;
+}
+
+.menu {
+    position: fixed;
+    z-index: 10;
+    width: 20rem;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    overflow-y: auto;
+}
+
+.menu--hide {
+    transform: translate(-100%, 0);
+}
+
+.menu_exit>i {
+    font-size: 2rem;
+}
+
+.menu>div {
+    width: 100%;
+    padding: 0rem 0rem 0rem 2rem;
+}
+
+#menu_exit {
+    text-align: center;
+    margin: 1rem 0 0 0;
+    padding: 0 0 0 0;
+}
+
+.menu>ul {
+    width: 100%;
+    padding: 0rem 2rem 0rem 2rem;
+    margin: 0rem 0rem 0rem 0rem;
+}
+
+.menu>ul>li {
+    list-style-type: none;
+    margin: 0rem 0 0rem 0;
+    padding: 0rem 0 0rem 0;
+}
+
+.menu>ul>li>p {
+    text-align: justify;
+}
+
+.socialIcons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: flex-start;
+    margin: 1rem 0 2rem 0;
+}
+
+.socialIcons>a {
+    margin: 0 0.5rem 0 0;
+}
+
+.socialIcons>a>i {
+    font-size: 2rem;
+    color: black;
+}
+
+.splash {
+    position: fixed;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: left;
+    align-items: left;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 1) url('../../img/lense.jpeg') center no-repeat;
+    background-size: cover;
+}
+
+.splash p {
+    text-align: justify;
+}
+
+.splash--noClick {
+
+    pointer-events: none;
+}
+
+.splash__out {
+    transform: translateY(-130vh);
+    background: rgba(0, 0, 0, 0);
+}
+
+/* .splash__in {
+    transform: translateY(-130vh);
+    background:rgba(0, 0, 0, 1) url('../../img/lense.jpeg') center no-repeat;
+} */
+
+/* .loading__p {
+
+    text-align: center;
+} */
+
+#click2start {
+
+
+    background: rgb(48, 63, 159, 1);
+    ;
+    box-shadow: 0.5rem 0.5rem 2rem black;
+    font-size: 1.5rem;
+    width: 50vw;
+    text-align: center;
+
+
+}
+
+
+.main--freeze {
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* .ddxScore {
+    font-size: 12px;
+    position: fixed;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: 10rem;
+    background: grey;
+    color: white;
+    top: 6rem;
+    left: 2rem;
+} */
+
+.ddx {
+    font-size: 12px;
+    position: fixed;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: 15rem;
+    background: black;
+    opacity: 0.5;
+    color: white;
+    top: 3.5rem;
+    left: 2rem;
+}
+
+.errors {
+    font-size: 12px;
+    position: fixed;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: 10rem;
+    background: grey;
+    color: white;
+    bottom: 6rem;
+    left: 2rem;
+}
+
+.errors--hide {
+    display: none;
+}
+
+
+/* TODO:THE APP IS DESIGNED TO NOT SHOW INDEX 4 and 5 of the app  fix or remove this */
+/* .ddxScore p:nth-child(4), .ddxScore p:nth-child(5){
+
+    display:none;
+} */
+
+/* .ddxScore p:last-child{
+    display:none;
+} */
+
+.ddxScore--hide {
+    display: none;
+}
+
+
+
+.ddx--hide {
+    top: 0rem;
+}
+
+
+.ddxBtn {
+
+    font-size: 2.5rem;
+    padding: 0px;
+    margin: 0px;
+
+}
+
+.ddxBtn--rotated {
+
+    transform: rotate(180deg);
+}
+
+.welcome {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: left;
+    padding: 2rem;
+    height: 15rem;
+    overflow-y: scroll;
+    background: rgba(0, 0, 0, 0.65);
+}
+
+.welcome>p,
+.welcome>h1 {
+    color: white;
+    width: 50vw;
+}
+
+.welcome>h1 {
+    margin: 2rem 0 0rem 0;
+    font-size: 2.5rem;
+}
+
+.welcome>.subtitle {
+    margin: 0rem 0 0rem 0;
+    color: white;
+}
+
+
+/* WEBCAM SCANNER AI */
+#container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin: 0px auto;
+    width: 100vw;
+    height: 100vh;
+    border: 1px #333 solid;
+    padding: 0px;
+    margin: 0px;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+
+.webcamContainer {
+
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin: 0px auto;
+    width: 100vw;
+    height: 100vh;
+    border: 1px #333 solid;
+    padding: 0px;
+    margin: 0px;
+    background: rgba(0, 0, 0, 0.8);
+
+
+}
+
+#webcamContainer-trainingSection{
+
+    margin:0%;
+    padding:0%;
+    border-style:solid;
+    border-width: 3px;
+    border-color: yellow;
+}
+
+
+#webcamElement {
+    background-color: rgba(0, 0, 0, 1);
+}
+
+
+#videoElement {
+    background-color: rgba(0, 0, 0, 1);
+}
+
+.prediction {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    height: 4rem;
+    width: 100%;
+    padding: 0rem 0rem 0rem 0rem;
+    margin: 0rem;
+    border: black solid 2px;
+    bottom: 0px;
+    left: 0rem;
+    background: black;
+}
+
+/* .fracture {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    color: white;
+    background: rgb(117, 117, 117, 1);
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+} */
+
+.final_ddx {
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    color: white;
+    background: rgb(117, 117, 117, 1);
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+
+}
+
+.fracture>p {
+    display: block;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0 0 0 1rem;
+    text-align: center;
+    font-size: 2rem;
+}
+
+/* === 4.FAB (floating action button) and themeButtons === */
+
+.gfab {
+    position: fixed;
+    text-align: center;
+    display: flex;
+    flex-direction: center;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    bottom: 4rem;
+    right: 2rem;
+    border-radius: 90px;
+    height: 4rem;
+    width: 4rem;
+    -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 1);
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 1);
+    background-color: rgba(55, 55, 55, 0.5);
+    -webkit-transition: 300ms ease-in-out 0s;
+    transition: 300ms ease-in-out 0s;
+    opacity: 1;
+    border-style: none;
+    background: rgb(255, 64, 129);
+    color: white;
+}
+
+#gfab__icon {
+    margin: 1rem;
+}
+
+.gfab:focus {
+    outline-style: none;
+}
+
+.gfab-active,
+.gfab:hover,
+.gfab:active {
+    background-color: rgba(0, 0, 0, 0.5);
+    outline-style: none;
+    -webkit-transform: translate(0px, -4px) scale(1.1);
+    transform: translate(0px, -4px) scale(1.1);
+}
+
+.fa-arrow-circle-right {
+    position: absolute;
+    -webkit-transition: 300ms ease-in-out 0s;
+    transition: 300ms ease-in-out 0s;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.float-away {
+
+    opacity: 0;
+    transform: translate(200%);
+
+}
+
+
+
+
+
+/* .infoContainer{
+    position:fixed;
+    display: inline-block;
+    top:20rem;
+    overflow: scroll;
+} */
+
+
+
+
+
+/* CARDS */
+
+.card {
+
+    /* display: inline-block; */
+    display: flex;
+    flex-direction: column;
+    position: static;
+    background: white;
+    box-shadow: 4px 4px 8px black;
+    margin: 0.5rem;
+    color: white;
+    align-self: center;
+}
+
+.card--square {
+
+    width: 320px;
+    height: 320px;
+}
+
+.card--wide {
+    width: clamp(23ch, 90%, 512px);
+    
+}
+
+.card__title {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: #303f9f;
+    color: white;
+
+    height: 176px;
+    padding: 1rem;
+
+}
+
+.card__body {
+    color: black;
+    padding: 0 1rem 0 1rem;
+}
+
+.card__frames {
+
+    width: 98%;
+    height: 29.5rem;
+    box-sizing: unset;
+    overflow: scroll;
+
+}
+
+#card_radhorizon {
+    background-image: "url:(../images/radhorizon_snap.png)";
+
+}
+
+
+.card__search {
+
+    height: 30rem;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+}
+
+.card__action {
+    background-color: #303f9f;
+    padding: 0.1rem 1rem 0.1rem 1rem;
+}
+
+.card__action>p>a {
+    color: white;
+}
+
+/* #card-horizon>.card__title{
+    background-image:url("https://cdn.vox-cdn.com/thumbor/R0BRlxZodKvazL6adSxXvEd8-3w=/0x0:4016x3047/1200x675/filters:focal(2966x1819:3608x2461)/cdn.vox-cdn.com/uploads/chorus_image/image/67030144/HorizonZeroDawn_1_00_Cover_B.0.jpg");
+
+} */
+
+.imageOfModelSelector {
+
+    width:clamp(23ch,75%, 40ch);
+
+}
+
+
+/* BUTTON OPTIONS */
+
+
+.form_modelSelector {
+    position: fixed;
+    z-index: 5;
+    bottom: 5rem;
+    left: 2rem;
+    display: flex;
+    text-align: center;
+
+}
+
+.form_modelSelector__elements {
+    display: flex;
+    flex-direction: column;
+    background-color: #303F9F;
+    border-style: initial;
+    border-radius: 0.4rem;
+    width: 5rem;
+    text-align: center;
+
+
+}
+
+.form_modelSelector__elements>label {
+
+    color: white;
+    /* width: 1rem; */
+    padding: 4px;
+}
+
+.form_modelSelector__elements>input {
+    text-align: center;
+
+
+}
+
+
+
+.contact-section {
+
+    display: block;
+    min-height: 10rem;
+
+    padding: 0.5rem 0 0.5rem 0;
+
+    background-color: black;
+    color: white;
+
+}
+
+.contact-section>p {
+
+    text-align: center;
+
+}
+
+
+
+.info-section{
+
+
+    display: flex;
+    flex-direction: column;
+    
+
+}
+
+
+/* may remove info layout */
+.info {
+    position: fixed;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    /* grid-template-rows:repeat(auto-fit, minmax(35rem, 1fr)); */
+    align-items: center;
+    top: 10rem;
+    bottom: 2rem;
+    background: white;
+    color: black;
+    width: 100vw;
+    overflow: scroll;
+    /* grid-auto-flow: dense; */
+    /* grid-template-areas:
+        "ft hd hd sb"
+        "ft bd bd sb"
+        "ft bd bd sb"
+        "ft bd bd sb"
+        "ft ft ft sb"; */
+}
+
+.hd {
+    /* grid-area:hd; */
+    background-color: green;
+}
+
+.bd {
+    /* grid-area:bd; */
+    background-color: brown;
+
+}
+
+.sd {
+    /* grid-area:sd; */
+    background-color: pink;
+
+}
+
+.ft {
+    /* grid-area:ft; */
+    background-color: orange;
+
+}
+
+.gridElements {
+
+    height: 20rem;
+
+}
+
+
+
+
+/***********************************************************************************
+/* TRAINING SECTION 
+************************************************************************************/
+
+
+
+.trainingSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.trainingSectionBottomBar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .dataCollector{
+
+display: flex;
+flex-direction: row;
+margin: 2ch;
+
+
+} */
+
+
+.input_btn_unit{
+
+display: flex;
+flex-direction: column;
+
+
+}
