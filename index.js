@@ -1585,6 +1585,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         await combinedModel.save('downloads://my-model');
 
+        //file sizes too big.... will need to experiment with direct upload to servers.
+        // const localStorageModel = await combinedModel.save('localstorage://my-model');
+
+
         // model2save.dispose();
 
         console.log("tf memory is " + tf.memory().numTensors);
