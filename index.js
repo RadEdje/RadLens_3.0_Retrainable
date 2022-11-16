@@ -1583,7 +1583,7 @@ document.addEventListener("DOMContentLoaded", function () {
     async function saveAndExport() {
 
 
-        await combinedModel.save('downloads://my-model');
+        await combinedModel.save('downloads://model');
 
         //file sizes too big.... will need to experiment with direct upload to servers.
         // const localStorageModel = await combinedModel.save('localstorage://my-model');
