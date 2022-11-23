@@ -133,7 +133,9 @@ sup {
     opacity: 0.8;
     width: 100vw;
     height: 100vh;
-    transition: 700ms linear 0s opacity;
+    /* transition: 700ms linear 0s opacity; */
+    transition: 700ms linear 0s;
+
 }
 
 .dimmer--hide {
@@ -889,10 +891,35 @@ sup {
 }
 
 .trainingSectionBottomBar {
-    display: flex;
-    flex-direction: column;
+
+    position: absolute;
+    z-index: 5;
+    display: block;
+    padding: 2ch 1ch 2ch 1ch;
+    /* flex-direction: column;
+    flex-wrap:nowrap;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
+    overflow:scroll;
+    width: clamp(23ch, 40%, 46ch);
+    height: clamp(25ch, 50%, 45ch);;
+    background: #ff4081;
+    border-color: pink;
+    right: 0rem;
+    bottom: 4rem;
+    opacity: 0.9;
+    /* transition: 1500ms linear 0s;  */
+}
+
+.trainingSectionBottomBar--hide{
+
+    /* width: 0px; */
+    width: 0rem;
+    height: 0rem;
+    opacity: 0;
+    overflow: hidden;
+
+
 }
 
 /* .dataCollector{

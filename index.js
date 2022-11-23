@@ -1038,9 +1038,38 @@ document.addEventListener("DOMContentLoaded", function () {
     SAVE_BUTTON.addEventListener('click', saveAndExport);
     RESET_BUTTON.addEventListener('click', reset);
 
+   
+
     // Just add more buttons in HTML to allow classification of more classes of data!
 
     // Adding more button
+
+
+    const toggleTrainingControls = (function(){
+
+        // variables
+
+        // cache dom
+        const $trainingSection__gfab__icon = document.querySelector("#trainingSection__gfab__icon");
+        const $trainingSectionBottomBar = document.querySelector("#trainingSectionBottomBar");
+
+
+        // bind dom
+
+        $trainingSection__gfab__icon.addEventListener("click", showHideTrainingControls);
+
+
+        // functions
+
+        function showHideTrainingControls(){
+
+            $trainingSectionBottomBar.classList.toggle("trainingSectionBottomBar--hide");
+
+        }
+
+
+
+    })();
 
 
     let addClassBtn = (function () {
@@ -1071,6 +1100,7 @@ document.addEventListener("DOMContentLoaded", function () {
             //create the 3 elements of the btn unit: label, input and button. 
             let newInputLabel = document.createElement("label");
             newInputLabel.setAttribute("for", `input${lastOneHotValue + 2}`);
+            newInputLabel.innerHTML = `Class Name ${lastOneHotValue + 2}`;
 
 
 
@@ -1685,7 +1715,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
         function resetClassButtons(n) {
 
+            let resetFormElement = document.createElement("div");
+            resetFormElement.classList.add("input_btn_unit");
+
+            let resetLabel = document.createElement("label");
+            resetLabel.htmlFor = `input${n}`;
+            resetLabel.innerHTML = `Class Name ${n}`;
+            
+            let resetInput = document.createElement("input");
+            resetInput.id=`input${n}`;
+            resetInput.classList.add("input_class_name");
+            resetInput.type = "text";
+            resetInput.value = `Class ${n}`;
+            resetInput.placeholder= "edit name here";
+
             let resetClassBtn = document.createElement("button");
+            resetClassBtn.id = `btn${n}`;
             resetClassBtn.dataset.onehot = n - 1;
             resetClassBtn.dataset.name = `Class ${n}`;
             resetClassBtn.classList.add("dataCollector");
@@ -1697,7 +1742,12 @@ document.addEventListener("DOMContentLoaded", function () {
             // For mobile.
             resetClassBtn.addEventListener('touchend', gatherDataForClass);
 
-            buttonsDataList.appendChild(resetClassBtn);
+
+            resetFormElement.appendChild(resetLabel);
+            resetFormElement.appendChild(resetInput);
+            resetFormElement.appendChild(resetClassBtn);
+
+            buttonsDataList.appendChild(resetFormElement);
 
 
             // remove the push per and re list all

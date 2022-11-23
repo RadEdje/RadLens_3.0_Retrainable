@@ -452,57 +452,9 @@ AUTHOR OF CURRENT CODE: Erwin John T. Carpio
 
             <video id="webcam" autoplay></video>
 
-
-            <div id="trainingSectionBottomBar" class="trainingSectionBottomBar">
-
-                <p id="status">Awaiting TF.js model for custom training to load</p>
+            <p id="status">Awaiting TF.js model for custom training to load</p>
 
 
-                <button id="enableCam">Enable Webcam</button>
-                <!-- <button class="dataCollector" data-1hot="0" data-name="Class 1">Gather Class 1 Data</button>
-                <button class="dataCollector" data-1hot="1" data-name="Class 2">Gather Class 2 Data</button> -->
-
-
-
-                <form id="formButtonDataList" action="">
-                    <div id="buttonsDataList" class="buttonsDataList">
-                        <div class="input_btn_unit">
-
-                            <label for="input1">Class Name 1</label>
-                            <input id="input1" class = "input_class_name" type="text" value = "Class 1" placeholder="edit name here">
-                            <button id="btn1" data-onehot="0" data-name="Class 1" class="dataCollector">Gather Class 1 Data</button>
-
-                        </div>
-
-
-                        <div class="input_btn_unit">
-
-                            <label for="input2">Class Name 2</label>
-                            <input id="input2" class = "input_class_name" type="text" value = "Class 2" placeholder="edit name here">                        
-                            <button id="btn2" data-onehot="1" data-name="Class 2" class="dataCollector">Gather Class 2 Data</button>
-
-                        </div>
-                      
-                        
-
-                    </div>
-                </form>
-
-                <!-- <div id="buttonsDataList" class="buttonsDataList">
-                    <button  data-onehot="0" data-name="Class 1" class="dataCollector" >Gather Class 1 Data</button>
-                    <button  data-onehot="1" data-name="Class 2" class="dataCollector" >Gather Class 2 Data</button>
-                </div> -->
-
-                <button id="addDataCollectorbtn" class="addDataCollectorbtn">Add a class</button>
-
-                <button id="train">Train &amp; Predict!</button>
-                <button id="save" class="save">SAVE and Export</button>
-                <button id="reset">Reset</button>
-
-
-
-
-            </div>
 
 
             <ol>
@@ -516,8 +468,68 @@ AUTHOR OF CURRENT CODE: Erwin John T. Carpio
             </ol>
 
 
+
+
             <div id="trainingSection__gfab" class="trainingSection__gfab">
                 <i id="trainingSection__gfab__icon" class="fas fa-camera fa-2x"></i>
+
+
+                <!-- TODO: MAY HAVE to rename this to follow BEM -->
+                <div id="trainingSectionBottomBar" class="trainingSectionBottomBar  trainingSectionBottomBar--hide">
+
+
+
+
+                    <button id="enableCam">Enable Webcam</button>
+                    <!-- <button class="dataCollector" data-1hot="0" data-name="Class 1">Gather Class 1 Data</button>
+                <button class="dataCollector" data-1hot="1" data-name="Class 2">Gather Class 2 Data</button> -->
+
+
+
+                    <form id="formButtonDataList" action="">
+                        <div id="buttonsDataList" class="buttonsDataList">
+                            <div class="input_btn_unit">
+
+                                <label for="input1">Class Name 1</label>
+                                <input id="input1" class="input_class_name" type="text" value="Class 1"
+                                    placeholder="edit name here">
+                                <button id="btn1" data-onehot="0" data-name="Class 1" class="dataCollector">Gather Class
+                                    1 Data</button>
+
+                            </div>
+
+
+                            <div class="input_btn_unit">
+
+                                <label for="input2">Class Name 2</label>
+                                <input id="input2" class="input_class_name" type="text" value="Class 2"
+                                    placeholder="edit name here">
+                                <button id="btn2" data-onehot="1" data-name="Class 2" class="dataCollector">Gather Class
+                                    2 Data</button>
+
+                            </div>
+
+
+
+                        </div>
+                    </form>
+
+                    <!-- <div id="buttonsDataList" class="buttonsDataList">
+                    <button  data-onehot="0" data-name="Class 1" class="dataCollector" >Gather Class 1 Data</button>
+                    <button  data-onehot="1" data-name="Class 2" class="dataCollector" >Gather Class 2 Data</button>
+                </div> -->
+
+                    <button id="addDataCollectorbtn" class="addDataCollectorbtn">Add a class</button>
+
+                    <button id="train">Train &amp; Predict!</button>
+                    <button id="save" class="save">SAVE and Export</button>
+                    <button id="reset">Reset</button>
+
+
+
+
+                </div>
+
             </div>
 
             <div id="trainingSection__footer" class="trainingSection__footer" contenteditable="true">
