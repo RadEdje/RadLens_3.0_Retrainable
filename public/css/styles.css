@@ -905,8 +905,10 @@ sup {
     height: clamp(25ch, 50%, 45ch);;
     background: #ff4081;
     border-color: pink;
+    border-radius: 25px 4px 4px 4px;
+    box-shadow: 5px 6px 14px 0px black;
     right: 0rem;
-    bottom: 4rem;
+    bottom: 9ch;
     opacity: 0.9;
     /* transition: 1500ms linear 0s;  */
 }
