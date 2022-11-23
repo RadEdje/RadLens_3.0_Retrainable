@@ -629,10 +629,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let constraints = {
             audio: false,
-            facingMode: "environment",
-            video: true,
-            width: webCamHeight,
-            height: webCamWidth
+            video: {
+                facingMode: "environment",
+                width: webCamHeight,
+                height: webCamWidth
+            },
+
         };
 
 
@@ -1038,14 +1040,14 @@ document.addEventListener("DOMContentLoaded", function () {
     SAVE_BUTTON.addEventListener('click', saveAndExport);
     RESET_BUTTON.addEventListener('click', reset);
 
-   
+
 
     // Just add more buttons in HTML to allow classification of more classes of data!
 
     // Adding more button
 
 
-    const toggleTrainingControls = (function(){
+    const toggleTrainingControls = (function () {
 
         // variables
 
@@ -1061,7 +1063,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // functions
 
-        function showHideTrainingControls(){
+        function showHideTrainingControls() {
 
             $trainingSectionBottomBar.classList.toggle("trainingSectionBottomBar--hide");
 
@@ -1254,7 +1256,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         //for editing the input class names
         let dataCollectorInputNames = {};
-        let dataCollectorButtons ={};        
+        let dataCollectorButtons = {};
         dataCollectorInputNames = document.querySelectorAll('input.input_class_name');
         dataCollectorButtons = document.querySelectorAll('button.dataCollector');
         for (let i = 0; i < dataCollectorInputNames.length; i++) {
@@ -1426,9 +1428,13 @@ document.addEventListener("DOMContentLoaded", function () {
         if (hasGetUserMedia()) {
             // getUsermedia parameters.
             const constraints = {
-                video: true,
-                width: webCamWidth,
-                height: webCamHeight
+                audio: false,
+                video:{
+                    facingMode: "environment",
+                    width: webCamWidth,
+                    height: webCamHeight
+                }
+        
             };
 
 
@@ -1721,13 +1727,13 @@ document.addEventListener("DOMContentLoaded", function () {
             let resetLabel = document.createElement("label");
             resetLabel.htmlFor = `input${n}`;
             resetLabel.innerHTML = `Class Name ${n}`;
-            
+
             let resetInput = document.createElement("input");
-            resetInput.id=`input${n}`;
+            resetInput.id = `input${n}`;
             resetInput.classList.add("input_class_name");
             resetInput.type = "text";
             resetInput.value = `Class ${n}`;
-            resetInput.placeholder= "edit name here";
+            resetInput.placeholder = "edit name here";
 
             let resetClassBtn = document.createElement("button");
             resetClassBtn.id = `btn${n}`;
