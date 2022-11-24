@@ -61,6 +61,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+    let errorWatcher = (function(){
+
+
+        // variables
+
+        // cache dom
+
+
+        const $wError = document.querySelector("#wError");
+
+
+
+        // bind dom
+  
+
+        window.onerror = function (message, url, lineNo){
+
+            
+            $wError.innerHTML += `Error: ${message} \n Line Number: ${lineNo} \n ` 
+
+            return true;
+
+        }
+
+    })();
+
+
 
     document.api = {};
     let ddxIndex = 4;
@@ -1821,7 +1848,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
+    // let x = $WWWWW;
 
 
 });
