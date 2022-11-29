@@ -970,11 +970,14 @@ margin: 2ch;
 
 }
 
-.input_btn_unit>button,.input_btn_unit>button.input {
+.input_btn_unit>button,.input_btn_unit>input {
 
     margin: 1ch;
     padding: 1ch;
 
-
-
 }
+
+/* .input_btn_unit>input{
+
+
+} */

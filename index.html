@@ -429,6 +429,119 @@ AUTHOR OF CURRENT CODE: Erwin John T. Carpio
 
 
 
+
+
+
+
+        <div class="info-section">
+
+
+            <div id="" class="card card--wide">
+                <div class="card__title">
+                    <h1>Google Image Search</h1>
+                </div>
+
+                <div class="card__body">
+                    <p>You can proceed to a google image search page generated from the AI/ML
+                        model's prediction by clicking the link below. If a prediction has not been made
+                        by the AI/ML model, the link will take you back to the top of the page.
+                        (See the next card or "Quick Facts" for further instructions on how to use the web app.).
+                    </p>
+                </div>
+
+                <div id="card__action" class="card__action">
+                    <p><a id="card_imageSearch_link" href="#headerLink">Take me to google image search.</a></p>
+                </div>
+            </div>
+
+            <div id="card_basicInfo" class="card card--wide">
+                <div class="card__title">
+                    <h1>Quick Facts</h1>
+                </div>
+
+                <div id="card_basicInfo_body" class="card__body">
+                    <p>Quick Instructions:</p>
+                    <p>Scroll all the way to the top to reveal the
+                        Camera Icon at the right lower corner.
+
+                    </p>
+
+                    <a href="#form_modelSelectorLink"> <img style="height:5rem" src="./img/camera_icon.jpg"
+                            alt="click on me to take you to the form box"> </a>
+
+                    <p>
+                        Click the camera icon and focus your camera on a
+                        scene or image you want to analyze. Try to focus on a specific part and see how the AI
+                        algorithm
+                        tries to guess what it is.</p> </br>
+
+                    <p>If you have your own custom model hosted on teachable machine's servers, you can copy and paste
+                        the link to your model in the form box (see picture below) and replace the <b>./my_model/.</b>
+                        Clicking on the image will also take you to the location of the form box. </p> </br>
+
+                    <a href="#form_modelSelectorLink"> <img src="./img/my_model.jpg"
+                            alt="click on me to take you to the form box" class="imageOfModelSelector"> </a>
+
+                    <p> The box to the right of the <b>./my_model/</b>
+                        represent the threshold value used by the AI model. Think of "threshold" as
+                        the level of "sureness" an AI has regarding its prediction.
+
+                        This is set to "any" by default meaning the AI will keep guessing indefinitely
+                        until you press the camera icon again to make it stop.
+                    </p>
+
+                    <p>
+                        If you set the threshold value to a number between from 0.01 to 1.0,
+                        the AI will stop scanning when it reaches threshold value or level of
+                        "sureness" for a particular prediction.
+
+                    </p>
+
+                    <p>
+                        When AI/ML models try to classify
+                        images they produce probability scores (of how "sure" the AI is about its prediction for the
+                        image).
+                        When one of the predicted classes reaches a threshold score, the model will stop
+                        predicting and use this to make a google image search.
+                        You can try setting this initially to 0.9 (or 90%) but you experiment
+                        with other values. </p> </br>
+
+
+                    <p>You also don't have to wait for the model to reach a specific score for it to stop.
+                        You can chose to manualy click or touch the camera button to make the AI model stop scanning.
+                        The predicted
+                        class with the most recent highest score will then be used to make a google image search.
+                    </p>
+
+                    <a href="#form_modelSelectorLink"> <img style="height:5rem" src="./img/camera_icon.jpg"
+                            alt="click on me to take you to the form box"> </a>
+
+                    <p> When you've decided what URL to use for the new model and the thershold value you want to use
+                        (or
+                        just keep the default value of "any"), you can press enter or click the submit button.
+                    </p>
+
+                    <a href="#form_modelSelectorLink"> <img src="./img/submit_btn.jpg"
+                            alt="click on me to take you to the form box"> </a>
+
+                    <p>This will updated the model used
+                        as well as the classes that the AI model will try to predict. It is highly advised that you only
+                        use links or
+                        URL's to models trained personally by you or AI/ML models from people you trust. Under no
+                        circumstance will this web app
+                        ask for personal or private information in order to run.</p>
+                </div>
+
+                <div class="card__action">
+                    <p>
+                        <a id="card_basicInfo_link" href="https://www.youtube.com/channel/UCHfixhX7E5ewBKB4kDMBvfQ">Take
+                            me to More videos for RadLens-AI</a>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
         <div id="trainingSection" class="trainingSection">
 
             <div id="trainingSection__header" class="trainingSection__header">
@@ -556,117 +669,7 @@ AUTHOR OF CURRENT CODE: Erwin John T. Carpio
         </div>
 
 
-
-        <div class="info-section">
-
-
-            <div id="" class="card card--wide">
-                <div class="card__title">
-                    <h1>Google Image Search</h1>
-                </div>
-
-                <div class="card__body">
-                    <p>You can proceed to a google image search page generated from the AI/ML
-                        model's prediction by clicking the link below. If a prediction has not been made
-                        by the AI/ML model, the link will take you back to the top of the page.
-                        (See the next card or "Quick Facts" for further instructions on how to use the web app.).
-                    </p>
-                </div>
-
-                <div id="card__action" class="card__action">
-                    <p><a id="card_imageSearch_link" href="#headerLink">Take me to google image search.</a></p>
-                </div>
-            </div>
-
-            <div id="card_basicInfo" class="card card--wide">
-                <div class="card__title">
-                    <h1>Quick Facts</h1>
-                </div>
-
-                <div id="card_basicInfo_body" class="card__body">
-                    <p>Quick Instructions:</p>
-                    <p>Scroll all the way to the top to reveal the
-                        Camera Icon at the right lower corner.
-
-                    </p>
-
-                    <a href="#form_modelSelectorLink"> <img style="height:5rem" src="./img/camera_icon.jpg"
-                            alt="click on me to take you to the form box"> </a>
-
-                    <p>
-                        Click the camera icon and focus your camera on a
-                        scene or image you want to analyze. Try to focus on a specific part and see how the AI
-                        algorithm
-                        tries to guess what it is.</p> </br>
-
-                    <p>If you have your own custom model hosted on teachable machine's servers, you can copy and paste
-                        the link to your model in the form box (see picture below) and replace the <b>./my_model/.</b>
-                        Clicking on the image will also take you to the location of the form box. </p> </br>
-
-                    <a href="#form_modelSelectorLink"> <img src="./img/my_model.jpg"
-                            alt="click on me to take you to the form box" class="imageOfModelSelector"> </a>
-
-                    <p> The box to the right of the <b>./my_model/</b>
-                        represent the threshold value used by the AI model. Think of "threshold" as
-                        the level of "sureness" an AI has regarding its prediction.
-
-                        This is set to "any" by default meaning the AI will keep guessing indefinitely
-                        until you press the camera icon again to make it stop.
-                    </p>
-
-                    <p>
-                        If you set the threshold value to a number between from 0.01 to 1.0,
-                        the AI will stop scanning when it reaches threshold value or level of
-                        "sureness" for a particular prediction.
-
-                    </p>
-
-                    <p>
-                        When AI/ML models try to classify
-                        images they produce probability scores (of how "sure" the AI is about its prediction for the
-                        image).
-                        When one of the predicted classes reaches a threshold score, the model will stop
-                        predicting and use this to make a google image search.
-                        You can try setting this initially to 0.9 (or 90%) but you experiment
-                        with other values. </p> </br>
-
-
-                    <p>You also don't have to wait for the model to reach a specific score for it to stop.
-                        You can chose to manualy click or touch the camera button to make the AI model stop scanning.
-                        The predicted
-                        class with the most recent highest score will then be used to make a google image search.
-                    </p>
-
-                    <a href="#form_modelSelectorLink"> <img style="height:5rem" src="./img/camera_icon.jpg"
-                            alt="click on me to take you to the form box"> </a>
-
-                    <p> When you've decided what URL to use for the new model and the thershold value you want to use
-                        (or
-                        just keep the default value of "any"), you can press enter or click the submit button.
-                    </p>
-
-                    <a href="#form_modelSelectorLink"> <img src="./img/submit_btn.jpg"
-                            alt="click on me to take you to the form box"> </a>
-
-                    <p>This will updated the model used
-                        as well as the classes that the AI model will try to predict. It is highly advised that you only
-                        use links or
-                        URL's to models trained personally by you or AI/ML models from people you trust. Under no
-                        circumstance will this web app
-                        ask for personal or private information in order to run.</p>
-                </div>
-
-                <div class="card__action">
-                    <p>
-                        <a id="card_basicInfo_link" href="https://www.youtube.com/channel/UCHfixhX7E5ewBKB4kDMBvfQ">Take
-                            me to More videos for RadLens-AI</a>
-                    </p>
-                </div>
-            </div>
-
-
-
-
+        <div id="info-section--two" class="info-section">
 
             <div class="card card--wide">
                 <div class="card__title">
@@ -684,8 +687,9 @@ AUTHOR OF CURRENT CODE: Erwin John T. Carpio
                     </p>
                 </div>
             </div>
-        </div>
 
+
+        </div>
 
         <div class="contact-section">
             <p>These are all just tools at your disposal.</p>
