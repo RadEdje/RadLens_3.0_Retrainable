@@ -503,7 +503,7 @@ sup {
     border: black solid 2px;
     bottom: 0px;
     left: 0rem;
-    background: rgb(163, 218, 15);
+    background: rgb(11, 167, 190);
 
 
 
@@ -933,11 +933,48 @@ margin: 2ch;
 
 } */
 
+.trainingSectionBottomBar>button{
+    margin: 2ch;
+    padding: 2ch;
+}
+
+.trainingSectionBottomBar_saveTrain {
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap:nowrap;
+    justify-content: center;
+    align-items: center;
+
+
+
+
+}
+
+.trainingSectionBottomBar_saveTrain>button{
+
+    margin: 2ch;
+    padding: 2ch;
+
+}
+
 
 .input_btn_unit {
 
     display: flex;
     flex-direction: column;
+
+
+
+
+
+}
+
+.input_btn_unit>button,.input_btn_unit>button.input {
+
+    margin: 1ch;
+    padding: 1ch;
+
 
 
 }
