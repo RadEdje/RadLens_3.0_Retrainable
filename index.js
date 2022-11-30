@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-    let errorWatcher = (function(){
+    let errorWatcher = (function () {
 
 
         // variables
@@ -74,12 +74,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         // bind dom
-  
 
-        window.onerror = function (message, url, lineNo){
 
-            
-            $wError.innerHTML += `Error: ${message} \n Line Number: ${lineNo} \n ` 
+        window.onerror = function (message, url, lineNo) {
+
+
+            $wError.innerHTML += `Error: ${message} \n Line Number: ${lineNo} \n `
 
             return true;
 
@@ -1062,7 +1062,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const STOP_DATA_GATHER = -1;
     let CLASS_NAMES = [];
 
-    ENABLE_CAM_BUTTON.addEventListener('click', enableCam);
+    ENABLE_CAM_BUTTON.addEventListener('click', toggleTrainingCam);
     TRAIN_BUTTON.addEventListener('click', trainAndPredict);
     SAVE_BUTTON.addEventListener('click', saveAndExport);
     RESET_BUTTON.addEventListener('click', reset);
@@ -1324,6 +1324,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let mobileNetBase = undefined;
 
 
+    // TODO eventually remove customPrint
     function customPrint(line) {
         let p = document.createElement('p');
         p.innerText = line;
@@ -1451,39 +1452,73 @@ document.addEventListener("DOMContentLoaded", function () {
     /**
      * Enable the webcam with video constraints applied.
      **/
-    function enableCam() {
-        if (hasGetUserMedia()) {
-            // getUsermedia parameters.
-            const constraints = {
-                audio: false,
-                video:{
-                    facingMode: "environment",
-                    width: webCamWidth,
-                    height: webCamHeight
-                }
-        
-            };
+    function toggleTrainingCam() {
+
+
+        // check if video element exists and is streaming
+        if (VIDEO.srcObject !== null && VIDEO.classList.contains("playing")) {
+
+            VIDEO.pause();
+            VIDEO.classList.remove("playing");
+            VIDEO.classList.add("paused");
+            console.log("%c paused", "color:red")
+
+            return;
+
+        } else if (VIDEO.srcObject !== null && VIDEO.classList.contains("paused")) {
+
+            VIDEO.play();
+            VIDEO.classList.remove("paused");
+            VIDEO.classList.add("playing");
+            console.log("%c playing", "color:green")
+
+
+            return;
+
+        } else if (VIDEO.srcObject === null) {
+
+            //i first time to run do this.
+            if (hasGetUserMedia()) {
+                // getUsermedia parameters.
+                const constraints = {
+                    audio: false,
+                    video: {
+                        facingMode: "environment",
+                        width: webCamWidth,
+                        height: webCamHeight
+                    }
+
+                };
 
 
 
 
-            // Activate the webcam stream.
-            navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
+                // Activate the webcam stream.
+                navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
 
 
 
-                VIDEO.srcObject = stream;
-                VIDEO.addEventListener('loadeddata', function () {
-                    videoPlaying = true;
-                    ENABLE_CAM_BUTTON.classList.add('removed');
+                    VIDEO.srcObject = stream;
+                    VIDEO.addEventListener('loadeddata', function () {
+                        videoPlaying = true;
+                        // ENABLE_CAM_BUTTON.classList.add('removed');
+                        VIDEO.classList.add("playing");
 
-                    VIDEO.height = webCamHeight;
-                    VIDEO.width = webCamWidth;
+                        VIDEO.height = webCamHeight;
+                        VIDEO.width = webCamWidth;
+                    });
                 });
-            });
-        } else {
-            console.warn('getUserMedia() is not supported by your browser');
+            } else {
+                console.warn('getUserMedia() is not supported by your browser');
+            }
+
+
         }
+
+
+
+
+
     }
 
 
@@ -1496,6 +1531,18 @@ document.addEventListener("DOMContentLoaded", function () {
         let classNumber = parseInt(this.getAttribute('data-onehot'));
         gatherDataState = (gatherDataState === STOP_DATA_GATHER) ? classNumber : STOP_DATA_GATHER;
 
+
+
+        let $trainingSectionBottomBar = document.querySelector("#trainingSectionBottomBar");
+
+        if (gatherDataState !== STOP_DATA_GATHER){
+
+            $trainingSectionBottomBar.style.opacity = 0.3;
+
+        }else if (gatherDataState === STOP_DATA_GATHER){
+            $trainingSectionBottomBar.style.opacity = 1.0;
+
+        }
 
 
         dataGatherLoop();
