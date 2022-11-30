@@ -417,10 +417,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
             async function isUrlFound(url) {
                 try {
-                    const response = await fetch(url, {
-                        method: 'HEAD',
-                        cache: 'no-cache'
-                    });
+                    // const response = await fetch(url, {
+                    //     method: 'HEAD',
+                    //     cache: 'no-cache'
+                    // });
+
+                    const response = await fetch(url);
 
                     return response.status === 200;
 
@@ -431,6 +433,8 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             const isValidUrl = await isUrlFound(modelMetadataURL);
+
+            console.log(`%c isValidUrl is ${isValidUrl}`, "color:green")
 
             if (isValidUrl) {
 
@@ -749,7 +753,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     track.stop();
                 });
 
-                video.srcObject = null;
+                // video.srcObject = null;
             }
 
             // update() {
@@ -856,7 +860,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
 
             console.log("stopped predicting");
-
+            // webcam.pause();
             webcam.stop();
             webCamRequestGranted = false;
             return;
@@ -1454,7 +1458,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 // landscape
                 $trainingSectionBottomBar.classList.add("trainingSectionBottomBar--landscape");
 
-            } else if (document.documentElement.clientWidth < document.documentElement.clientHeight && $trainingSectionBottomBar.classList.contains("trainingSectionBottomBar--landscape")){
+            } else if (document.documentElement.clientWidth < document.documentElement.clientHeight && $trainingSectionBottomBar.classList.contains("trainingSectionBottomBar--landscape")) {
                 // portrait
 
                 $trainingSectionBottomBar.classList.remove("trainingSectionBottomBar--landscape");
@@ -1508,7 +1512,22 @@ document.addEventListener("DOMContentLoaded", function () {
         // check if video element exists and is streaming
         if (VIDEO.srcObject !== null && VIDEO.classList.contains("playing")) {
 
-            VIDEO.pause();
+            // VIDEO.pause();
+
+
+
+            let stopStreamedVideoTrainer = (function () {
+
+                const stream = VIDEO.srcObject;
+                const tracks = stream.getTracks();
+
+                tracks.forEach((track) => {
+                    track.stop();
+                });
+
+            })();
+
+
             VIDEO.classList.remove("playing");
             VIDEO.classList.add("paused");
             console.log("%c paused", "color:red")
@@ -1517,7 +1536,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
         } else if (VIDEO.srcObject !== null && VIDEO.classList.contains("paused")) {
 
-            VIDEO.play();
+            // VIDEO.play();
+
+            //re initialize web cam.
+            if (hasGetUserMedia()) {
+                // getUsermedia parameters.
+                const constraints = {
+                    audio: false,
+                    video: {
+                        facingMode: "environment",
+                        width: webCamWidth,
+                        height: webCamHeight
+                    }
+
+                };
+
+                // Activate the webcam stream.
+                navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
+                    VIDEO.srcObject = stream;
+                    VIDEO.addEventListener('loadeddata', function () {
+                        videoPlaying = true;
+                        // ENABLE_CAM_BUTTON.classList.add('removed');
+                        VIDEO.classList.add("playing");
+
+                        VIDEO.height = webCamHeight;
+                        VIDEO.width = webCamWidth;
+                    });
+                });
+            } else {
+                console.warn('getUserMedia() is not supported by your browser');
+            }
+
+
             VIDEO.classList.remove("paused");
             VIDEO.classList.add("playing");
             console.log("%c playing", "color:green")
