@@ -459,7 +459,7 @@ sup {
 
 .trainingSection__gfab {
 
-    position: absolute;
+    position: relative;
     align-self: end;
     text-align: center;
     display: flex;
@@ -467,7 +467,8 @@ sup {
     justify-content: center;
     align-content: center;
     align-items: center;
-    bottom: 4rem;
+    margin-top:-5rem;
+    bottom: 0rem;
     right: 2rem;
     border-radius: 90px;
     height: 4rem;
@@ -481,10 +482,13 @@ sup {
     border-style: none;
     background: rgb(255, 64, 129);
     color: white;
-
-
-
 }
+
+
+
+
+
+
 
 .trainingSection__footer {
 
@@ -907,8 +911,10 @@ sup {
     border-color: pink;
     border-radius: 25px 4px 4px 4px;
     box-shadow: 5px 6px 14px 0px black;
-    right: 0rem;
-    bottom: 9ch;
+    /* right: 0rem;
+    bottom: 9ch; */
+    right: 9ch;
+    bottom: -21ch;
     opacity: 0.9;
     /* transition: 1500ms linear 0s;  */
 }
@@ -923,6 +929,27 @@ sup {
 
 
 }
+
+/* .trainingSectionBottomBar--portrait {
+
+    right: 9ch;
+    bottom: -21ch;
+
+
+} */
+
+
+.trainingSectionBottomBar--landscape {
+
+    right: 0rem;
+    bottom: 9ch;
+
+
+
+}
+
+
+
 
 /* .dataCollector{
 

@@ -568,20 +568,11 @@ AUTHOR OF CURRENT CODE: Erwin John T. Carpio
 
             <video id="webcam" autoplay></video>
 
-            <p id="status">Awaiting TF.js model for custom training to load</p>
 
 
 
 
-            <ol>
-                <li>First enable webcam and allow access when asked.</li>
-                <li>Now find an object, point cam at it, click and hold gather class 1 data button to gather at least 30
-                    samples.</li>
-                <li>Repeat for class 2 with a different object of interest. Get similar number of samples.</li>
-                <li>Click train and predict and wait while the model is trained live in your browser. No data is sent to
-                    server.</li>
-                <li>Once trained you will see live predictions appear above the video for what it thinks it sees.</li>
-            </ol>
+
 
 
 
@@ -591,7 +582,7 @@ AUTHOR OF CURRENT CODE: Erwin John T. Carpio
 
 
                 <!-- TODO: MAY HAVE to rename this to follow BEM -->
-                <div id="trainingSectionBottomBar" class="trainingSectionBottomBar  trainingSectionBottomBar--hide">
+                <div id="trainingSectionBottomBar" class="trainingSectionBottomBar  trainingSectionBottomBar--hide trainingSectionBottomBar--portrait">
 
 
 
@@ -657,6 +648,23 @@ AUTHOR OF CURRENT CODE: Erwin John T. Carpio
                 </div>
 
             </div>
+
+
+            <p id="status">Awaiting TF.js model for custom training to load</p>
+
+
+
+            <ol>
+                <li>First enable webcam and allow access when asked.</li>
+                <li>Now find an object, point cam at it, click and hold gather class 1 data button to gather at least 30
+                    samples.</li>
+                <li>Repeat for class 2 with a different object of interest. Get similar number of samples.</li>
+                <li>Click train and predict and wait while the model is trained live in your browser. No data is sent to
+                    server.</li>
+                <li>Once trained you will see live predictions appear above the video for what it thinks it sees.</li>
+            </ol>
+
+
 
             <div id="trainingSection__footer" class="trainingSection__footer" contenteditable="true">
                 <p>FOOTER PLACE HOLDER</p>

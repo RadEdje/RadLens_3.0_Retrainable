@@ -1434,6 +1434,56 @@ document.addEventListener("DOMContentLoaded", function () {
     //insert resizer function here...
 
 
+    let windowResizeWatcher = (function () {
+
+        // variables
+        let $trainingSectionBottomBar = document.querySelector("#trainingSectionBottomBar");
+
+
+        // bind dom
+        window.addEventListener("resize", render)
+
+
+
+        // functions
+
+        function resizeOnPortratOrLandscape() {
+
+
+            if (document.documentElement.clientWidth > document.documentElement.clientHeight && !$trainingSectionBottomBar.classList.contains("trainingSectionBottomBar--landscape")) {
+                // landscape
+                $trainingSectionBottomBar.classList.add("trainingSectionBottomBar--landscape");
+
+            } else if (document.documentElement.clientWidth < document.documentElement.clientHeight && $trainingSectionBottomBar.classList.contains("trainingSectionBottomBar--landscape")){
+                // portrait
+
+                $trainingSectionBottomBar.classList.remove("trainingSectionBottomBar--landscape");
+
+
+            }
+
+
+        }
+
+
+
+        // render function
+
+        function render() {
+
+            resizeOnPortratOrLandscape();
+
+
+        }
+
+
+        render();
+
+    })();
+
+
+
+
     let webCamHeight;
     let webCamWidth;
 
@@ -1535,11 +1585,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let $trainingSectionBottomBar = document.querySelector("#trainingSectionBottomBar");
 
-        if (gatherDataState !== STOP_DATA_GATHER){
+        if (gatherDataState !== STOP_DATA_GATHER) {
 
             $trainingSectionBottomBar.style.opacity = 0.3;
 
-        }else if (gatherDataState === STOP_DATA_GATHER){
+        } else if (gatherDataState === STOP_DATA_GATHER) {
             $trainingSectionBottomBar.style.opacity = 1.0;
 
         }
