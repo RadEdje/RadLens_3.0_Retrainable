@@ -879,7 +879,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // FOR SECOND PART
     // ********************************************************************************
 
-
+// initially set streaming to false
+    let streaming = false;
 
     async function loop() {
 
@@ -898,6 +899,133 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
 
             console.log("stopped predicting");
+
+
+            //create the canvas that takes a picture of th viddeo feed and pout it before webcam.stop
+
+
+            let keepLastFrameOfVideo = (function(){
+
+                // variables
+
+                // cache dom
+                let $webcamContainer = document.querySelector("#webcamContainer");
+                let $scanningCanvas = document.createElement("canvas");
+                let $scanningImg = document.createElement("img");    
+                $scanningImg.id = "scanningId";
+                $scanningCanvas.classList.add("scanningId");
+                $scanningImg.id = "scanningImg";
+                $scanningImg.classList.add("scanningImg");
+
+                if(document.querySelector("#webcamElement")){
+                    $webcamElement = document.querySelector("#webcamElement");
+
+
+
+                    $webcamElement.addEventListener(
+                        "canplay",
+                        (ev) => {
+                          if (!streaming) {
+                            height = ($webcamElement.videoHeight / $webcamElement.videoWidth) * $webcamElement.videoWidth;
+                      
+                            // video.setAttribute("width", width);
+                            // video.setAttribute("height", height);
+                            $scanningCanvas.setAttribute("width", $webcamElement.videoWidth);
+
+                            // $scanningCanvas.setAttribute("height", height);
+
+                            $scanningCanvas.setAttribute("height", $webcamElement.videoHeight);
+
+
+
+                            streaming = true;
+                          }
+                        },
+                        false
+                      );
+                }
+
+
+
+                // bind dom
+
+
+               
+
+
+
+                // functions
+
+
+
+
+
+
+                function takepicture() {
+                    const context = $scanningCanvas.getContext("2d");
+                    if ($webcamElement.width && $webcamElement.height) {
+
+                        let width = $webcamElement.videoWidth;
+                        let height = $webcamElement.videoHeight;
+
+                      $scanningCanvas.width = width;
+                      $scanningCanvas.height = height;
+                      context.drawImage($webcamElement, 0, 0, width, height);
+                  
+                      const data = $scanningCanvas.toDataURL("image/png");
+                      $scanningImg.setAttribute("src", data);
+                      $scanningImg.style.height = height;
+                    } else {
+                      clearphoto();
+                    }
+                  }
+                  
+
+
+                function clearphoto() {
+                    const context = canvas.getContext("2d");
+                    context.fillStyle = "#AAA";
+                    context.fillRect(0, 0, $scanningImg.width, $scanningImg.height);
+                  
+                    const data = canvas.toDataURL("image/png");
+                    $scanningImg.setAttribute("src", data);
+                  }
+
+
+                function addImgOnTopOfVideo(){
+
+                    $webcamContainer.appendChild($scanningImg);
+
+                }
+                  
+
+
+                //   render function
+
+                function render(){
+                    takepicture();
+                    addImgOnTopOfVideo();
+
+
+                }
+
+
+
+                render();
+
+
+            })();
+
+
+
+
+
+
+
+
+
+
+
             // webcam.pause();
             webcam.stop();
             webCamRequestGranted = false;

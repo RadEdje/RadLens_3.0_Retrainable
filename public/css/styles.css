@@ -517,6 +517,7 @@ sup {
 
 #webcamElement {
     background-color: rgba(0, 0, 0, 1);
+    height: auto;
 }
 
 
@@ -1008,3 +1009,14 @@ margin: 2ch;
 
 
 } */
+
+
+.scanningImg {
+
+    position: absolute;
+    z-index: 4;
+
+}
+
+
+
