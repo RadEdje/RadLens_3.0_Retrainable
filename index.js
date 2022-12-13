@@ -879,7 +879,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // FOR SECOND PART
     // ********************************************************************************
 
-// initially set streaming to false
+    // initially set streaming to false
     let streaming = false;
 
     async function loop() {
@@ -904,20 +904,20 @@ document.addEventListener("DOMContentLoaded", function () {
             //create the canvas that takes a picture of th viddeo feed and pout it before webcam.stop
 
 
-            let keepLastFrameOfVideo = (function(){
+            let keepLastFrameOfVideo = (function () {
 
                 // variables
 
                 // cache dom
                 let $webcamContainer = document.querySelector("#webcamContainer");
                 let $scanningCanvas = document.createElement("canvas");
-                let $scanningImg = document.createElement("img");    
+                let $scanningImg = document.createElement("img");
                 $scanningImg.id = "scanningId";
                 $scanningCanvas.classList.add("scanningId");
                 $scanningImg.id = "scanningImg";
                 $scanningImg.classList.add("scanningImg");
 
-                if(document.querySelector("#webcamElement")){
+                if (document.querySelector("#webcamElement")) {
                     $webcamElement = document.querySelector("#webcamElement");
 
 
@@ -925,24 +925,24 @@ document.addEventListener("DOMContentLoaded", function () {
                     $webcamElement.addEventListener(
                         "canplay",
                         (ev) => {
-                          if (!streaming) {
-                            height = ($webcamElement.videoHeight / $webcamElement.videoWidth) * $webcamElement.videoWidth;
-                      
-                            // video.setAttribute("width", width);
-                            // video.setAttribute("height", height);
-                            $scanningCanvas.setAttribute("width", $webcamElement.videoWidth);
+                            if (!streaming) {
+                                // height = ($webcamElement.videoHeight / $webcamElement.videoWidth) * $webcamElement.videoWidth;
 
-                            // $scanningCanvas.setAttribute("height", height);
+                                // video.setAttribute("width", width);
+                                // video.setAttribute("height", height);
+                                $scanningCanvas.setAttribute("width", $webcamElement.videoWidth);
 
-                            $scanningCanvas.setAttribute("height", $webcamElement.videoHeight);
+                                // $scanningCanvas.setAttribute("height", height);
+
+                                $scanningCanvas.setAttribute("height", $webcamElement.videoHeight);
 
 
 
-                            streaming = true;
-                          }
+                                streaming = true;
+                            }
                         },
                         false
-                      );
+                    );
                 }
 
 
@@ -950,7 +950,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 // bind dom
 
 
-               
+
 
 
 
@@ -963,46 +963,52 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 function takepicture() {
                     const context = $scanningCanvas.getContext("2d");
-                    if ($webcamElement.width && $webcamElement.height) {
+                    // if ($webcamElement.width && $webcamElement.height) {
+                    if ($webcamElement.videoWidth && $webcamElement.videoHeight) {
+
 
                         let width = $webcamElement.videoWidth;
                         let height = $webcamElement.videoHeight;
 
-                      $scanningCanvas.width = width;
-                      $scanningCanvas.height = height;
-                      context.drawImage($webcamElement, 0, 0, width, height);
-                  
-                      const data = $scanningCanvas.toDataURL("image/png");
-                      $scanningImg.setAttribute("src", data);
-                      $scanningImg.style.height = height;
+                        $scanningCanvas.width = width;
+                        $scanningCanvas.height = height;
+                        context.drawImage($webcamElement, 0, 0, width, height);
+
+                        const data = $scanningCanvas.toDataURL("image/png");
+                        $scanningImg.setAttribute("src", data);
+                        $scanningImg.style.height = height;
+                        $scanningImg.style.width = width;
+
                     } else {
-                      clearphoto();
+                        clearphoto();
                     }
-                  }
-                  
+                }
+
 
 
                 function clearphoto() {
                     const context = canvas.getContext("2d");
                     context.fillStyle = "#AAA";
                     context.fillRect(0, 0, $scanningImg.width, $scanningImg.height);
-                  
+
                     const data = canvas.toDataURL("image/png");
                     $scanningImg.setAttribute("src", data);
-                  }
+                }
 
 
-                function addImgOnTopOfVideo(){
+                function addImgOnTopOfVideo() {
 
-                    $webcamContainer.appendChild($scanningImg);
+                    // $webcamContainer.appendChild($scanningImg);
+                    $webcamElement.appendChild($scanningImg);
+
 
                 }
-                  
+
 
 
                 //   render function
 
-                function render(){
+                function render() {
                     takepicture();
                     addImgOnTopOfVideo();
 
