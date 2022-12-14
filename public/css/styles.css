@@ -371,7 +371,8 @@ sup {
 }
 
 .welcome>p,
-.welcome>h1 {
+.welcome>h1,
+.welcome>ol>li {
     color: white;
     width: 50vw;
 }
@@ -429,6 +430,7 @@ sup {
     display: grid;
     grid-template-rows: auto fr auto;
     margin: 0%;
+    margin-top: 5ch;
     padding: 0%;
     border-style: solid;
     border-width: 3px;

@@ -112,8 +112,8 @@ AUTHOR OF CURRENT CODE: Erwin John T. Carpio
 
     <!-- facebook sdk start-->
     <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0">
-    </script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0"
+        nonce="wBhiPVgi"></script>
 
     <!-- facebook sdk end -->
 
@@ -132,22 +132,14 @@ AUTHOR OF CURRENT CODE: Erwin John T. Carpio
                 <i id="shareIcon" class="fas fa-share"></i>
                 <div id="share__btns" class="share__btns share__btns--hidden">
 
-
-
                     <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
-                        data-size="large"
-                        data-text="Check it out. #Tensorflow #Tensorflow.js #RadLens-AI #teachablemachine "
-                        data-show-count="false">Tweet</a>
+                        data-size="large" data-show-count="false">Tweet</a>
                     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-
-
-                    <div class="fb-share-button" data-href="https://radhorizon.com/RadLens%20AI%20Foot%20Ossicles/"
-                        data-layout="button" data-size="large"><a target="_blank"
-                            href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fradhorizon.com%2FRadLens%2520AI%2520Foot%2520Ossicles%2F&amp;src=sdkpreparse"
-                            class="fb-xfbml-parse-ignore">Share</a>
-                    </div>
-
+      
+                    <div class="fb-share-button" data-href="https://radhorizon.com/rhz.com/radlens-demo/"
+                        data-layout="button_count" data-size="large"><a target="_blank"
+                            href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fradhorizon.com%2Frhz.com%2Fradlens-demo%2F&amp;src=sdkpreparse"
+                            class="fb-xfbml-parse-ignore">Share</a></div>
 
                 </div>
             </div>
@@ -192,11 +184,11 @@ AUTHOR OF CURRENT CODE: Erwin John T. Carpio
                         href="https://teachablemachine.withgoogle.com/"
                         style="font-weight: bold; font-size:larger">Teachable Machine</a>,
                     you can copy and then paste the link to your model in the form box at the lower left hand corner of
-                    the app.
+                    the main app (upper most window of the app).
                 </p>
 
-                <p>Currently known to run on: The latest firefox, opera and chrome on desktop/laptop, Samsung galaxy S8,
-                    Mi6, OnePlus5T (on android 8.0 oreo), iphoneX, iphoneSE, iphoneC (running at least safari 11).
+                <p>Currently known to run on: The latest firefox, opera and chrome on desktop/laptop, and mobile
+                    (android).
                     Hardware
                     limitations may limit the speed of the prediction or drain phone batteries quickly as AI/ML may
                     prove demanding
@@ -210,7 +202,7 @@ AUTHOR OF CURRENT CODE: Erwin John T. Carpio
             </li>
             <li>
                 <h2>Camera Scanner</h2>
-                <p>Press the round button on the lower right to start scanning.</p>
+                <p>Press the round button on the lower right of the main window app to start scanning.</p>
                 <p>Focus the camera on an image.</p>
                 <p>Real time predictions and their respective probabilites are on the upper left.</p>
 
@@ -219,6 +211,19 @@ AUTHOR OF CURRENT CODE: Erwin John T. Carpio
                 </p>
 
                 <button id="debug" class="debug">Hide/Show differentials and probabilities (the top left box)</button>
+
+            </li>
+
+            <li>
+                <h2>NEW FEATURE: Train your own AI model with your phone</h2>
+                <p>I really like teachable machine's ability to train models with javascript
+                    but I wanted to add this functionality to my phone (so I won't have to get laptop
+                    or a large desktop to train models). The new section for
+                    "Train Your Own Model, Save, and Export it here" now let's you point your mobile phone's
+                    camera and gather image data on the fly. You can add as many classes as your hardware supports
+                    (AI models can be very demanding of processing power and memory). You can save and export the
+                    newly trained model and share the model on services like glitch or github.
+                </p>
 
             </li>
 
@@ -287,7 +292,8 @@ AUTHOR OF CURRENT CODE: Erwin John T. Carpio
 
             <div class="subtitle">
 
-                <p>A web app for deploying AI computer vision models with little or NO CODE. <br>
+                <p>A web app for <b>DEPLOYING</b> and <b>TRAINING</b> AI computer vision models with
+                    little or NO CODE right on your phone. <br>
 
                 </p>
 
@@ -309,11 +315,22 @@ AUTHOR OF CURRENT CODE: Erwin John T. Carpio
                 at the bottom that will take you to a google image search page showing you other images
                 that may match what the camera is currently looking at. Apps with similar reverse image search
                 functionality already exist such as
-                <a href="https://lens.google/" style="font-weight: bold; font-size:larger"> google lens</a> but this web
-                app allows the user to train his/her/their own custom AI/ML
-                model on <a href="https://teachablemachine.withgoogle.com/"
-                    style="font-weight: bold; font-size:larger">Teachable Machine</a>
-                to create custom reverse image search engines (personal C-RISE) for specific use cases.
+                <a href="https://lens.google/" style="font-weight: bold; font-size:larger"> google lens</a>
+            </p>
+
+            <p>
+                However, this web app allows the users to train their own custom AI/ML
+                model right on their <b style="color:rgb(208, 255, 0)">PHONE</b> or load
+                models they pretrained on <a href="https://teachablemachine.withgoogle.com/"
+                    style="font-weight: bold; font-size:larger">Teachable Machine</a></p>
+
+
+
+
+
+            <p>
+                This allows users to create custom reverse image search engines (personal C-RISE) for specific use
+                cases.
                 (Please scroll down and read to accept the terms of use and begin.)
             </p>
             <p>Initial load may takes 5-10 seconds (on slow connections). Press the
@@ -347,6 +364,8 @@ AUTHOR OF CURRENT CODE: Erwin John T. Carpio
             <p>
                 At the time of this writing, the web app has the ability to accept a URL link to
                 pre-trained AI models hosted at
+                <a href="https://github.com/" style="font-weight: bold; font-size:larger">github</a>,
+                <a href="https://glitch.com/" style="font-weight: bold; font-size:larger">glitch</a>,
                 <a href="https://teachablemachine.withgoogle.com/" style="font-weight: bold; font-size:larger">Teachable
                     Machine</a>.
                 You can place the URL link to your custom model hosted on teachable machine in the form input box at
@@ -354,7 +373,7 @@ AUTHOR OF CURRENT CODE: Erwin John T. Carpio
                 From here the app will reload and then function running the new AI model to distinguish classes that the
                 new AI/ML model is trained on. It is advised that the user/users of the RadLens-AI webapp/webpage
                 copy/paste URL links only for AI/ML model's from trusted sources (either AI/ML models
-                personally trained by him/her/them or models trained by people he/she/they trust).
+                personally trained by them or models trained by people they trust).
                 Under no circumstances will the RadLens-AI web app ever ask for or require personal or private
                 information to be placed
                 in the input form to run.
@@ -686,11 +705,11 @@ AUTHOR OF CURRENT CODE: Erwin John T. Carpio
                 </div>
 
                 <div id="card_basicInfo_body--training" class="card__body">
-                  
-                    <p>Scroll to the new training section (click on the image below to take you there) </p>
 
-                    <a href="#trainingSection__header"> <img style="height:5rem"
-                            src="./img/RadLensTraining/Training Section.png"
+                    <p>Scroll to the new training section (click or tap on the image below to take you there) </p>
+
+                    <a href="#card_basicInfo_link"> <img class="trainingSectionImg--fullWidth"
+                            src="./img/RadLensTraining/Training Section.jpg"
                             alt="click on me to take you to the form box"> </a>
 
                     <p>Click on the new camera button in the training section.</p>
@@ -702,15 +721,13 @@ AUTHOR OF CURRENT CODE: Erwin John T. Carpio
                         This will open up the traning menu.</p> </br>
 
                     <a href="#trainingSection__header"> <img class="trainingSectionImg--fullWidth"
-                            src="./img/RadLensTraining/Training_menu.png" alt="click on me to take you to the form box">
+                            src="./img/RadLensTraining/Training_menu.jpg" alt="click on me to take you to the form box">
                     </a>
 
                     <p>Click on the "Enable Webcam" button to open your camera (you may have to grant permission to the
                         web app
-                        to access your camera. You can click on this button again to disable the camera and keep the
-                        last
-                        frame or screen shot of your camera. However, since we wan to collect data, keep the camera on
-                        for now</p> </br>
+                        to access your camera. You can click on this button again to disable the camera.
+                        However, since we want to collect data, keep the camera on for now</p> </br>
 
                     <a href="#trainingSection__header"> <img style="height:5rem"
                             src="./img/RadLensTraining/Enable_Webcam_button.png"
@@ -740,6 +757,11 @@ AUTHOR OF CURRENT CODE: Erwin John T. Carpio
                         increase.
                     </p>
 
+                    <a href="#trainingSection__header"> <img class="trainingSectionImg--fullWidth"
+                            src="./img/RadLensTraining/class_count.jpg" alt="click on me to take you to the form box">
+                    </a>
+
+
                     <!-- TODO: PUT A PICTURE HERE of the data frame collection data count -->
 
                     <p>When you're done with collecting data for one class, you can scroll down the
@@ -764,7 +786,7 @@ AUTHOR OF CURRENT CODE: Erwin John T. Carpio
                     <p>You can rename the class by tapping on the label input form above the Class Name Buttons</p>
 
                     <a href="#trainingSection__header"> <img style="height:5rem"
-                            src="./img/RadLensTraining/Change class name.png"
+                            src="./img/RadLensTraining/Change class name.jpg"
                             alt="click on me to take you to the form box"> </a>
 
                     <a href="#trainingSection__header"> <img style="height:5rem"
@@ -823,24 +845,45 @@ AUTHOR OF CURRENT CODE: Erwin John T. Carpio
                         </ol>
 
                         You can put these files in a folder for later use or upload and share/serve them
-                        on either <a href="https://glitch.com/">Glitch</a> or <a href="https://github.com/">Github</a>
+                        on either
+
+                        <ol>
+                            <li><a href="https://github.com/">Github</a> or</li>
+                            <li><a href="https://glitch.com/">Glitch</a></li>
+                        </ol>
+
+
                     </p>
 
                     <p>Once served on glitch or github, you can access any of your pretrained models via inputting
                         the URL link in the main window app above. The main app will use your new model and new
-                        labels for images it was trained on.
+                        labels for images it was trained on. (Remember that the main web app
+                        at the top most portion of the web page also accepts URL links for
+                        models trained on <a href="https://teachablemachine.withgoogle.com/"
+                            style="font-weight: bold; font-size:medium">Teachable Machine</a>.)
                     </p>
 
 
+                    <p>If you want to reset everything (revert back to just two classes
+                        and prepare the model for retraining), just click or tap on the
+                        "Reset" Button.
+                    </p>
+
+                    <a href="#trainingSection__header"> <img style="height:5rem"
+                            src="./img/RadLensTraining/Reset_button.png" alt="click on me to take you to the form box">
+                    </a>
 
 
-                    <div class="card__action">
-                        <p>
-                            <a id="card_basicInfo_link--training"
-                                href="https://www.youtube.com/channel/UCHfixhX7E5ewBKB4kDMBvfQ">Take
-                                me to More videos for RadLens-AI</a>
-                        </p>
-                    </div>
+
+
+
+                </div>
+                <div class="card__action">
+                    <p>
+                        <a id="card_basicInfo_link--training"
+                            href="https://www.youtube.com/channel/UCHfixhX7E5ewBKB4kDMBvfQ">Take
+                            me to More videos for RadLens-AI</a>
+                    </p>
                 </div>
 
 
@@ -852,7 +895,7 @@ AUTHOR OF CURRENT CODE: Erwin John T. Carpio
             </div>
 
 
-                
+
         </div>
 
         <div id="info-section--two" class="info-section">

@@ -1275,7 +1275,7 @@ document.addEventListener("DOMContentLoaded", function () {
             //create the 3 elements of the btn unit: label, input and button. 
             let newInputLabel = document.createElement("label");
             newInputLabel.setAttribute("for", `input${lastOneHotValue + 2}`);
-            newInputLabel.innerHTML = `Class Name ${lastOneHotValue + 2}`;
+            newInputLabel.innerText = `Class Name ${lastOneHotValue + 2}`;
 
 
 
@@ -1293,7 +1293,7 @@ document.addEventListener("DOMContentLoaded", function () {
             newClassBtn.dataset.name = `Class ${lastOneHotValue+2}`;
             newClassBtn.classList.add("dataCollector");
             newClassBtn.setAttribute("id", `btn${lastOneHotValue+2}`);
-            newClassBtn.innerHTML = `Gather Class ${lastOneHotValue+2} data`;
+            newClassBtn.innerText = `Gather Class ${lastOneHotValue+2} data`;
             // newClassBtn.setAttribute("contenteditable", true);
 
             newClassBtn.addEventListener('mousedown', gatherDataForClass);
@@ -1434,7 +1434,7 @@ document.addEventListener("DOMContentLoaded", function () {
         dataCollectorButtons = document.querySelectorAll('button.dataCollector');
         for (let i = 0; i < dataCollectorInputNames.length; i++) {
             dataCollectorButtons[i].dataset.name = dataCollectorInputNames[i].value;
-            dataCollectorButtons[i].innerHTML = dataCollectorInputNames[i].value;
+            dataCollectorButtons[i].innerText = dataCollectorInputNames[i].value;
 
         }
 
