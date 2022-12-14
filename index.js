@@ -41,7 +41,7 @@ CREDITS:
 inspired by code from 
 https://github.com/google/emoji-scavenger-hunt under the APACHE 2.0 License
 https://github.com/googlecreativelab/teachable-machine-v1 under the APACHE 2.0 License
-https://www.edx.org/course/google-ai-for-javascript-developers-with-tensorflowjs (taught by Jason Mayes)
+https://www.edx.org/course/google-ai-for-javascript-developers-with-tensorflowjs (taught by Jason Mayes.
 
 
 
@@ -891,8 +891,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 function addImgOnTopOfVideo() {
 
-                    // $webcamContainer.appendChild($scanningImg);
-                    $webcamElement.appendChild($scanningImg);
+                    $webcamContainer.appendChild($scanningImg);
+                    // $webcamElement.appendChild($scanningImg);
 
 
                 }
@@ -1714,6 +1714,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     async function trainAndPredict() {
         predict4TrainingModel = false;
+
+
+        let $traingSplashScreen = document.querySelector("#trainingSplashScreen");
+        $traingSplashScreen.classList.add("trainingSplashScreen--show");
+        // $traingSplashScreen.classList.add("traingSplashScreen--hide");
+
+
+
+
         tf.util.shuffleCombo(trainingDataInputs, trainingDataOutputs);
 
         let outputsAsTensor = tf.tensor1d(trainingDataOutputs, 'int32');
@@ -1749,6 +1758,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         combinedModel.summary();
+
+
+        $traingSplashScreen.classList.remove("trainingSplashScreen--show");
 
         predictLoop();
 
