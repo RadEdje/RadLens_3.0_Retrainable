@@ -59,36 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
-
-    let errorWatcher = (function () {
-
-
-        // variables
-
-        // cache dom
-
-
-        const $wError = document.querySelector("#wError");
-
-
-
-        // bind dom
-
-
-        window.onerror = function (message, url, lineNo) {
-
-
-            $wError.innerHTML += `Error: ${message} \n Line Number: ${lineNo} \n `
-
-            return true;
-
-        }
-
-    })();
-
-
-
     document.api = {};
     let ddxIndex = 4;
 
@@ -340,7 +310,7 @@ document.addEventListener("DOMContentLoaded", function () {
             $welcome.scrollTo(0, 0);
             $splash.classList.add('splash--noClick');
             $splash.classList.remove('splash__out');
-            $loading.innerHTML = "Loading AI model........";
+            $loading.innerText = "Loading AI model........";
             $loading0.style.display = "block";
             $ddxScore.innerHTML = "";
 
@@ -1530,7 +1500,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const URL = 'https://storage.googleapis.com/jmstore/TensorFlowJS/EdX/SavedModels/mobilenet-v2/model.json';
         mobilenet = await tf.loadLayersModel(URL);
 
-        STATUS.innerText = 'MobileNet v2 loaded successfully!';
+
+        STATUS.innerText = 'AI model loaded and ready to train!';
+
+        // STATUS.innerText = 'MobileNet v2 loaded successfully!';
 
         //save this for later and print it somewhere else
         // mobilenet.summary(null, null, customPrint);
