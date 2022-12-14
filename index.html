@@ -12,10 +12,19 @@ creating a UX/UI for a game to detect emojis(like in the original), the current 
 is used to scan images and then takes you to a google image search to cross reference the image
 found. 
 
-Updated as of 11/27/2019:
-using the teachable machine API
-https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
-Will now use tmImage module to handle the video capture and model predict functions
+
+Update as of December 2022:
+I liked teachable machine a lot but I couldn't train AI right on my phone.
+I decided to add this is a new feature to the web app (to apply what I learned from the edx course
+of Jason Mayes).
+The web app can now
+1)Train custom AI models righ on the User's phone,
+2)Save and export those models for sharing on sites like glitch or github
+3)Use those models for the main C-RISE (customizable reverse image search engine)
+4)the web app can still load AI models trianed on the teachable machine website and shared
+using teachable machine URL's.
+
+
 
 Updated as of April 2022:
 I've also taken recent inspiration from the teachable machine (see links  below)
@@ -23,12 +32,20 @@ which allows anyone to train their own AI models in the cloud. The updated versi
 uses the teachable machines libarary to more easily load AI/ML models using
 tensorflow.js.
 
+Updated as of 11/27/2019:
+using the teachable machine API
+https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
+Will now use tmImage module to handle the video capture and model predict functions
+
+
+
+
 
 CREDITS:
 inspired by code from 
 https://github.com/google/emoji-scavenger-hunt under the APACHE 2.0 License
 https://github.com/googlecreativelab/teachable-machine-v1 under the APACHE 2.0 License
-
+https://www.edx.org/course/google-ai-for-javascript-developers-with-tensorflowjs (taught by Jason Mayes)
 
 
 AUTHOR OF CURRENT CODE: Erwin John T. Carpio
@@ -50,25 +67,21 @@ AUTHOR OF CURRENT CODE: Erwin John T. Carpio
 
 -->
 
-<!-- TODO: OUTLINE for project RadLens_ortho_cloud
+<!-- FIXED: OUTLINE for project RadLens_ortho_cloud
     --DONE  KEPT AT RADLENS by RADEDJE NAME
     --CONVERT modelselector to form =DONE
     -- look at $modelSelector.addEventListener in radedje-AI radhorizon (successfully converted to form)
     --merge animations of  radedje-AI radhorizono (so far animations work but
     had to do event.preventDefault(); upon form submission => FIXED => DONE
     --currently submitting the old model breaks the app (correction, it was Just the wrong URL.... it works)
-    --try fixing the info cards. => DONE (decided to not use my person virtual DOM using JSON and wrote native static html)
+    --try fixing the info cards. => DONE (decided to not use my personal virtual DOM using JSON and wrote native static html)
     --removed projectJson.js from script tag.
     --protect form by converting to string. =>DONE
-    --parse string to google image search string using: {<NAME>,search terms} http://www.google.com/images?q=your+search+terms =>DONE
-
-     
+    --parse string to google image search string using: {<NAME>,search terms} http://www.google.com/images?q=your+search+terms =>DONE    
     
-    TODO: CLEAN UP UX/UI and CODE
+    FIXED: CLEAN UP UX/UI and CODE
     --clean up the code
-    --LINK TO A TUTORIAL VID
-    --Prepare for teach about AI model performance
-    --CLEAN UP CODE and refer to teachable machine and emoji scavenger hunt.... 
+    --WRITE DOCUMENTATION and instructions on how to use
 -->
 
 

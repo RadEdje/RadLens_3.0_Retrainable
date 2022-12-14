@@ -12,10 +12,18 @@ creating a UX/UI for a game to detect emojis(like in the original), the current 
 is used to scan images and then takes you to a google image search to cross reference the image
 found. 
 
-Updated as of 11/27/2019:
-using the teachable machine API
-https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
-Will now use tmImage module to handle the video capture and model predict functions
+Update as of December 2022:
+I liked teachable machine a lot but I couldn't train AI right on my phone.
+I decided to add this is a new feature to the web app (to apply what I learned from the edx course
+of Jason Mayes).
+The web app can now
+1)Train custom AI models righ on the User's phone,
+2)Save and export those models for sharing on sites like glitch or github
+3)Use those models for the main C-RISE (customizable reverse image search engine)
+4)the web app can still load AI models trianed on the teachable machine website and shared
+using teachable machine URL's.
+
+
 
 Updated as of April 2022:
 I've also taken recent inspiration from the teachable machine (see links  below)
@@ -23,11 +31,17 @@ which allows anyone to train their own AI models in the cloud. The updated versi
 uses the teachable machines libarary to more easily load AI/ML models using
 tensorflow.js.
 
+Updated as of 11/27/2019:
+using the teachable machine API
+https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
+Will now use tmImage module to handle the video capture and model predict functions
+
 
 CREDITS:
 inspired by code from 
 https://github.com/google/emoji-scavenger-hunt under the APACHE 2.0 License
 https://github.com/googlecreativelab/teachable-machine-v1 under the APACHE 2.0 License
+https://www.edx.org/course/google-ai-for-javascript-developers-with-tensorflowjs (taught by Jason Mayes)
 
 
 
@@ -371,17 +385,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const modelMetadataURL = URL + "metadata.json";
 
 
-            // console.log(`modelUrl is ${modelURL}`);
-
-            // const metadataURL = URL + "metadata.json";
-
-            // load the model and metadata
-            // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
-            // or files from your local hard drive
-            // Note: the pose library adds "tmImage" object to your window (window.tmImage)
-
-            // TODO: replace tmImage.load with raw jason course learning.
-            // model = await tmImage.load(modelURL, metadataURL); old code
+    
 
             model = await tf.loadLayersModel(modelURL);
 
@@ -570,60 +574,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // always start with an empty webCamContainer
         webCamContainer.innerHTML = "";
 
-
-
-        /**NOT NEEDED will all be handles by the CLASS WebCam
-         * Check if getUserMedia is supported for webcam access.
-         **/
-        // function hasGetUserMedia() {
-        //     return !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia);
-        // }
-
-
-        // old code
-        // let constraints = {
-        //     audio: false,
-        //     facingMode: "environment"
-        //     // facingMode: {exact: "environment"}
-        // }
-
-
-
-        /** NOT NEEDED ll all be handles by the CLASS WebCam
-         * Enable the webcam with video constraints applied.
-         **/
-        // function enableCam() {
-        //     if (hasGetUserMedia()) {
-        //         // getUsermedia parameters.
-        //         let constraints = {
-        //             audio: false,
-        //             facingMode: "environment",
-        //             video: true,
-        //             width: webCamHeight,
-        //             height: webCamWidth
-        //         };
-
-        //         // Activate the webcam stream.
-        //         navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
-        //             VIDEO.srcObject = stream;
-        //             VIDEO.addEventListener('loadeddata', function () {
-        //                 videoPlaying = true;
-        //                 // ENABLE_CAM_BUTTON.classList.add('removed'); not needed. this is from jason's code
-        //             });
-        //         });
-        //     } else {
-        //         console.warn('getUserMedia() is not supported by your browser');
-        //     }
-
-        //     //TODO: Replace tmImage wee cam: add a polyfill if no userMedia later from RadLens 2
-        //     //You can add a catch function too if you want later
-        // }
-
-
-        // TODO: replace tmImage.Webcam with raw from json course.
-        // webcam = new tmImage.Webcam(webCamHeight, webCamWidth, flip); // width, height, flip
-        // await webcam.setup(constraints); // request access to the webcam
-        // await webcam.play();
+     
 
 
         const flip = false; // whether to flip the webcam
@@ -727,7 +678,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     this.webcam = await this.getWebCam();
 
 
-                    // DON'T NEED CANVAS.... just render the video element directly like in jason's lecture
+                    // DON'T NEED CANVAS.... just render the video element directly 
                     // if (!this.canvas) {
                     //     this.canvas = document.createElement('canvas');
                     //     this.canvas.width = this.width;
@@ -764,37 +715,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 // video.srcObject = null;
             }
 
-            // update() {
-            //     this.renderCameraToCanvas();
-            // }
 
 
 
-
-
-            //removed render to canvas since I'm using the video element directly generated 
-            // renderCameraToCanvas() {
-            //     if (this.canvas && this.webcam) {
-            //         const ctx = this.canvas.getContext('2d');
-
-            //         if (this.webcam.videoWidth !== 0) {
-            //             const croppedCanvas = cropTo(this.webcam, this.width, this.flip);
-            //             ctx.drawImage(croppedCanvas, 0, 0);
-            //         }
-            //     }
-            // }
-
-            // for future use?
-            // stopStreamedVideo(videoEl: HTMLVideoElement) {
-            //     const stream = videoEl.srcObject as MediaStream;
-            //     const tracks = stream.getTracks();
-
-            //     tracks.forEach((track) => {
-            //         track.stop();
-            //     });
-
-            //     videoEl.srcObject = null;
-            // }
 
         }
 
@@ -860,7 +783,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         // functions
-        //change all of these into the jason raw js versions
+
         // webcam.update(); // update the webcam frame... don't need this just us PREDICT 
         await predict();
 
@@ -993,15 +916,6 @@ document.addEventListener("DOMContentLoaded", function () {
             })();
 
 
-
-
-
-
-
-
-
-
-
             // webcam.pause();
             webcam.stop();
             webCamRequestGranted = false;
@@ -1037,18 +951,11 @@ document.addEventListener("DOMContentLoaded", function () {
             return prediction = model.predict(normalizedTensorFrame.expandDims()).squeeze();
 
 
-            // let highestIndex = prediction.argMax().arraySync();
-            // let predictionArray = prediction.arraySync();
-            // STATUS.innerText = 'Prediction: ' + CLASS_NAMES[highestIndex] + ' with ' + Math.floor(predictionArray[highestIndex] * 100) + '% confidence';
+
         });
 
 
-        // console.log("predicting");
-        // console.log(`prediction plain is ${prediction}`);
-        // console.log(`Prediction argMax and array sync is ${prediction.argMax().arraySync()}`);
-        // console.log(`Prediction array sync is ${prediction.arraySync()}`);
-        // console.log(`Prediction.arraysync[0] is ${prediction.arraySync()[0]}`);
-        // console.log(`modelMetadata labels are ${modelMetadata.labels}`);
+
 
 
 
@@ -1063,17 +970,10 @@ document.addEventListener("DOMContentLoaded", function () {
             let className_ = classNameString.replace(/\_/g, ' ');
             let className = className_.replace(/\?/g, '');
 
-            //replaced these with modelMetadata
-            // let classNameString = prediction.arraySync()[i].className.toString();
-            // let className_ = classNameString.replace(/\_/g, ' ');
-            // let className = className_.replace(/\?/g, '');
 
             let classPredictionProbability = prediction.arraySync()[i].toFixed(2);
             let classPrediction = className + ": " + classPredictionProbability;
 
-            //replaced tm's prediction with raw tf prediction array sync. 
-            // let classPredictionProbability = prediction[i].probability.toFixed(2);
-            // let classPrediction = className + ": " + prediction[i].probability.toFixed(2);
 
             console.log(`classNameString is ${classNameString} while className is ${className} 
             and sensitivityLevel is ${sensitivityLevel}, and classPrediction is ${classPrediction}`);
@@ -1445,19 +1345,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         }
-        // CLASS_NAMES.push(dataCollectorButtons[i].getAttribute('data-name'));
-
 
     });
 
 
 
-    // for (let i = 0; i < dataCollectorInputNames.length; i++) {
-    //     dataCollectorInputNames[i].addEventListener('change', updateBtnClassName(i));
-    // }
-    // function updateBtnClassName(i){
-    //     dataCollectorButtons[i].dataset.name = dataCollectorInputNames[i].value;
-    // }
 
 
     let mobilenet = undefined;
@@ -1481,19 +1373,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /**
      * Loads the MobileNet model and warms it up so ready for use.
-     * the old asyn function is replaced  with the new  one  below it
+     * 
      **/
-    // async function loadMobileNetFeatureModel() {
-    //   const URL = 'https://tfhub.dev/google/tfjs-model/imagenet/mobilenet_v3_small_100_224/feature_vector/5/default/1';
-    //   mobilenet = await tf.loadGraphModel(URL, {fromTFHub: true});
-    //   STATUS.innerText = 'MobileNet v3 loaded successfully!';
-
-    //   // Warm up the model by passing zeros through it once.
-    //   tf.tidy(function () {
-    //     let answer = mobilenet.predict(tf.zeros([1, MOBILE_NET_INPUT_HEIGHT, MOBILE_NET_INPUT_WIDTH, 3]));
-    //     console.log(answer.shape);
-    //   });
-    // }
 
 
     async function loadMobileNetFeatureModel() {
@@ -1502,19 +1383,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         STATUS.innerText = 'AI model loaded and ready to train!';
-
-        // STATUS.innerText = 'MobileNet v2 loaded successfully!';
-
-        //save this for later and print it somewhere else
-        // mobilenet.summary(null, null, customPrint);
-
-        // stop adding the model to the end
-        // mobilenet.summary(null, null);
-
-
-
-
-
 
         const layer = mobilenet.getLayer('global_average_pooling2d_1');
         mobileNetBase = tf.model({
@@ -1538,12 +1406,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     loadMobileNetFeatureModel();
-
-    //this is the   old  code for the HEAD to be   repalced  with  what   follows:
-    // let model = tf.sequential();
-    // model.add(tf.layers.dense({inputShape: [1024], units: 128, activation: 'relu'}));
-    // model.add(tf.layers.dense({units: CLASS_NAMES.length, activation: 'softmax'}));
-
 
     let model2Train = tf.sequential();
     model2Train.add(tf.layers.dense({
@@ -1576,8 +1438,6 @@ document.addEventListener("DOMContentLoaded", function () {
     function hasGetUserMedia() {
         return !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia);
     }
-
-
 
 
     //insert resizer function here...
@@ -1794,23 +1654,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    // function calculateFeaturesOnCurrentFrame() {
-    //   return tf.tidy(function() {
-    //     // Grab pixels from current VIDEO frame.
-    //     let videoFrameAsTensor = tf.browser.fromPixels(VIDEO);
-    //     // Resize video frame tensor to be 224 x 224 pixels which is needed by MobileNet for input.
-    //     let resizedTensorFrame = tf.image.resizeBilinear(
-    //         videoFrameAsTensor, 
-    //         [MOBILE_NET_INPUT_HEIGHT, MOBILE_NET_INPUT_WIDTH],
-    //         true
-    //     );
-
-    //     let normalizedTensorFrame = resizedTensorFrame.div(255);
-
-    //     return mobilenet.predict(normalizedTensorFrame.expandDims()).squeeze();
-    //   });
-    // }
-
 
     function calculateFeaturesOnCurrentFrame() {
         return tf.tidy(function () {
@@ -1865,29 +1708,6 @@ document.addEventListener("DOMContentLoaded", function () {
     /**
      * Once data collected actually perform the transfer learning.
      **/
-    // async function trainAndPredict() {
-    //   predict = false;
-    //   tf.util.shuffleCombo(trainingDataInputs, trainingDataOutputs);
-
-    //   let outputsAsTensor = tf.tensor1d(trainingDataOutputs, 'int32');
-    //   let oneHotOutputs = tf.oneHot(outputsAsTensor, CLASS_NAMES.length);
-    //   let inputsAsTensor = tf.stack(trainingDataInputs);
-
-    //   let results = await model.fit(inputsAsTensor, oneHotOutputs, {
-    //     shuffle: true,
-    //     batchSize: 5,
-    //     epochs: 10,
-    //     callbacks: {onEpochEnd: logProgress}
-    //   });
-
-    //   outputsAsTensor.dispose();
-    //   oneHotOutputs.dispose();
-    //   inputsAsTensor.dispose();
-
-    //   predict = true;
-    //   predictLoop();
-    // }
-
 
     let combinedModel;
 
@@ -1942,8 +1762,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         //file sizes too big.... will need to experiment with direct upload to servers.
         // const localStorageModel = await combinedModel.save('localstorage://my-model');
-
-
         // model2save.dispose();
 
         console.log("tf memory is " + tf.memory().numTensors);
@@ -2096,10 +1914,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
-        //THIS IS RERUNNING THE HEAD PART since you removed everything and are resetting to 2
-        //re use the model2Train function to dispose of all tensors and recreate it with the new parameters
-        //remember the number of classes have now increased
+        //This is to RERUN THE HEAD PART of the AI model since you removed everything and are resetting to 2
+        // dispose of all tensors and recreate it with the new parameters
+        //note that the number of classes have now increased
 
 
         model2Train.dispose();
@@ -2134,13 +1951,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
-
-
-
-
-
-    // let x = $WWWWW;
 
 
 });
