@@ -647,6 +647,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 const video = document.createElement('video');
+                video.setAttribute("muted", "");
+                video.setAttribute("playsinline", "");
+                video.setAttribute("autoplay", "");
 
                 // Activate the webcam stream.
                 return navigator.mediaDevices.getUserMedia(this.constraints)
@@ -742,6 +745,9 @@ document.addEventListener("DOMContentLoaded", function () {
         webCamContainerChildren = webCamContainer.children;
         webCamContainerChildren[0].id = "webcamElement";
         webCamElement = document.querySelector("#webcamElement");
+        // webCamElement.muted = true;
+        // webCamElement.setAttribute("muted","");
+        // webCamElement.setAttribute("playsinline", "");
 
 
 
