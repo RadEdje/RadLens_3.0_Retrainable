@@ -385,7 +385,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const modelMetadataURL = URL + "metadata.json";
 
 
-    
+
 
             model = await tf.loadLayersModel(modelURL);
 
@@ -574,7 +574,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // always start with an empty webCamContainer
         webCamContainer.innerHTML = "";
 
-     
+
 
 
         const flip = false; // whether to flip the webcam
@@ -750,6 +750,16 @@ document.addEventListener("DOMContentLoaded", function () {
         // webCamElement.setAttribute("playsinline", "");
 
 
+        let $gfab = document.querySelector("#gfab");
+        webCamElement.addEventListener("click", function () {
+
+            $gfab.click();
+
+        });
+
+
+
+
 
         // adding to the ddxScore debug element for predictions
         for (let i = 0; i < maxPredictions; i++) { // and class labels
@@ -846,6 +856,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+
+
+
                 // bind dom
 
 
@@ -892,6 +905,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     const data = canvas.toDataURL("image/png");
                     $scanningImg.setAttribute("src", data);
+                    $scanningImg.removeEventListener("click");
                 }
 
 
@@ -899,6 +913,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     $webcamContainer.appendChild($scanningImg);
                     // $webcamElement.appendChild($scanningImg);
+
+                    $scanningImg.addEventListener("click", function () {
+
+                        let $gfab = document.querySelector("#gfab");
+                        gfab.click();
+
+                    });
 
 
                 }
@@ -1095,6 +1116,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
+
     // ********************************
     // SECTION TWO TRAINING
     // FOR SECOND PART
@@ -1114,7 +1136,25 @@ document.addEventListener("DOMContentLoaded", function () {
     const STOP_DATA_GATHER = -1;
     let CLASS_NAMES = [];
 
-    ENABLE_CAM_BUTTON.addEventListener('click', toggleTrainingCam);
+
+
+    let countTrain = 0;
+    ENABLE_CAM_BUTTON.addEventListener('click', function(){
+       
+        toggleTrainingCam();
+
+        if(countTrain<1){
+            VIDEO.addEventListener("click", function () {
+
+                ENABLE_CAM_BUTTON.click();
+    
+            });
+        }
+        countTrain +=1; 
+        // console.log(`count train is ${countTrain}`);
+
+
+    });
     TRAIN_BUTTON.addEventListener('click', trainAndPredict);
     SAVE_BUTTON.addEventListener('click', saveAndExport);
     RESET_BUTTON.addEventListener('click', reset);
@@ -1147,6 +1187,9 @@ document.addEventListener("DOMContentLoaded", function () {
             $trainingSectionBottomBar.classList.toggle("trainingSectionBottomBar--hide");
 
         }
+
+
+
 
 
 

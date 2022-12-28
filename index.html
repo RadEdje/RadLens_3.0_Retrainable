@@ -547,7 +547,8 @@ AUTHOR OF CURRENT CODE: Erwin John T. Carpio
 
 
                     <p>You also don't have to wait for the model to reach a specific score for it to stop.
-                        You can chose to manualy click or touch the camera button to make the AI model stop scanning.
+                        You can chose to manualy click or touch the camera button to make the AI model stop or restart scanning 
+                        (tapping on the camera view finder does the same thing).
                         The predicted
                         class with the most recent highest score will then be used to make a google image search.
                     </p>
@@ -572,7 +573,7 @@ AUTHOR OF CURRENT CODE: Erwin John T. Carpio
                 </div>
 
                 <div class="card__action">
-                    <p> Not happy with the preloaded AI Model? Not interested in Radiology images?
+                    <p id="endOfScanningHelp"> Not happy with the preloaded AI Model? Not interested in Radiology images?
                         Train your own AI model on your own images right on your phone
                          in the next section !
                         <!-- <a id="card_basicInfo_link" href="https://www.youtube.com/channel/UCHfixhX7E5ewBKB4kDMBvfQ">Take
@@ -620,7 +621,7 @@ AUTHOR OF CURRENT CODE: Erwin John T. Carpio
 
 
 
-                    <button id="enableCam">Enable Webcam</button>
+                    <button id="enableCam">Enable Webcam (Toggle)</button>
 
 
                     <form id="formButtonDataList" class="formButtonDataList" action="">
@@ -702,34 +703,34 @@ AUTHOR OF CURRENT CODE: Erwin John T. Carpio
 
                     <p>Scroll to the new training section (click or tap on the image below to take you there) </p>
 
-                    <a href="#card_basicInfo_link"> <img class="trainingSectionImg--fullWidth"
+                    <a href="#endOfScanningHelp"> <img class="trainingSectionImg--fullWidth"
                             src="./img/RadLensTraining/Training Section.jpg"
                             alt="click on me to take you to the form box"> </a>
 
                     <p>Click on the new camera button in the training section.</p>
-                    <a href="#card_basicInfo_link"> <img style="height:5rem"
+                    <a href="#endOfScanningHelp"> <img style="height:5rem"
                             src="./img/RadLensTraining/training_Camera_icon.png"
                             alt="click on me to take you to the form box"> </a>
 
                     <p>
                         This will open up the traning menu.</p> </br>
 
-                    <a href="#card_basicInfo_link"> <img class="trainingSectionImg--fullWidth"
+                    <a href="#endOfScanningHelp"> <img class="trainingSectionImg--fullWidth"
                             src="./img/RadLensTraining/Training_menu.jpg" alt="click on me to take you to the form box">
                     </a>
 
                     <p>Click on the "Enable Webcam" button to open your camera (you may have to grant permission to the
                         web app
-                        to access your camera. You can click on this button again to disable the camera.
+                        to access your camera. You can click on this button again or tap the camera view finder to disable or re-enable the camera.
                         However, since we want to collect data, keep the camera on for now</p> </br>
 
-                    <a href="#card_basicInfo_link"> <img style="height:5rem"
+                    <a href="#endOfScanningHelp"> <img style="height:5rem"
                             src="./img/RadLensTraining/Enable_Webcam_button.png"
                             alt="click on me to take you to the form box"> </a>
 
                     <p>Aim your camera at the subject you want the model to train on.</p>
 
-                    <a href="#card_basicInfo_link"> <img class="trainingSectionImg--fullWidth"
+                    <a href="#endOfScanningHelp"> <img class="trainingSectionImg--fullWidth"
                             src="./img/RadLensTraining/training_on_cat.png"
                             alt="click on me to take you to the form box"> </a>
 
@@ -740,7 +741,7 @@ AUTHOR OF CURRENT CODE: Erwin John T. Carpio
                         by the AI model.
                     </p>
 
-                    <a href="#card_basicInfo_link"> <img style="height:5rem"
+                    <a href="#endOfScanningHelp"> <img style="height:5rem"
                             src="./img/RadLensTraining/Class_data_collection_button.png"
                             alt="click on me to take you to the form box"> </a>
 
@@ -751,7 +752,7 @@ AUTHOR OF CURRENT CODE: Erwin John T. Carpio
                         increase.
                     </p>
 
-                    <a href="#card_basicInfo_link"> <img class="trainingSectionImg--fullWidth"
+                    <a href="#endOfScanningHelp"> <img class="trainingSectionImg--fullWidth"
                             src="./img/RadLensTraining/class_count.jpg" alt="click on me to take you to the form box">
                     </a>
                     
@@ -759,7 +760,7 @@ AUTHOR OF CURRENT CODE: Erwin John T. Carpio
                         menu to reach the "Class 2."
                     </p>
 
-                    <a href="#card_basicInfo_link"> <img style="height:5rem"
+                    <a href="#endOfScanningHelp"> <img style="height:5rem"
                             src="./img/RadLensTraining/Class_2_gather_data_button.png"
                             alt="click on me to take you to the form box"> </a>
 
@@ -769,14 +770,17 @@ AUTHOR OF CURRENT CODE: Erwin John T. Carpio
                         and collect data.
                     </p>
 
-                    <a href="#card_basicInfo_link"> <img class="trainingSectionImg--fullWidth"
+                    <a href="#endOfScanningHelp"> <img class="trainingSectionImg--fullWidth"
                             src="./img/RadLensTraining/training_on_dog.png"
                             alt="click on me to take you to the form box"> </a>
 
 
-                    <p>You can rename the class by tapping on the label input form above the Class Name Buttons</p>
+                    <p>You can rename the class by tapping on the label input form above the Class Name Buttons
+                        (Note: if you want your class names to produce hyperlinks for reuse with
+                        the main scanner, please use under scores. For example, type white cat as "white_cat")
+                    </p>
 
-                    <a href="#card_basicInfo_link"> <img style="height:5rem"
+                    <a href="#endOfScanningHelp"> <img style="height:5rem"
                             src="./img/RadLensTraining/Change class name.jpg"
                             alt="click on me to take you to the form box"> </a>
 
@@ -789,21 +793,21 @@ AUTHOR OF CURRENT CODE: Erwin John T. Carpio
                     </p>
 
 
-                    <a href="#card_basicInfo_link"> <img style="height:5rem"
+                    <a href="#endOfScanningHelp"> <img style="height:5rem"
                             src="./img/RadLensTraining/Add_Class_button.png"
                             alt="click on me to take you to the form box"> </a>
 
                     <p>Now you have a 3rd class.</p>
 
 
-                    <a href="#card_basicInfo_link"> <img style="height:5rem"
+                    <a href="#endOfScanningHelp"> <img style="height:5rem"
                             src="./img/RadLensTraining/3rd_class_added.png"
                             alt="click on me to take you to the form box"> </a>
 
 
                     <p>Let's name it "robot" and train it on robots.</p>
 
-                    <a href="#card_basicInfo_link"> <img class="trainingSectionImg--fullWidth"
+                    <a href="#endOfScanningHelp"> <img class="trainingSectionImg--fullWidth"
                             src="./img/RadLensTraining/robots.png" alt="click on me to take you to the form box"> </a>
 
 
@@ -816,13 +820,13 @@ AUTHOR OF CURRENT CODE: Erwin John T. Carpio
                     </p>
 
 
-                    <a href="#card_basicInfo_link"> <img style="height:5rem"
+                    <a href="#endOfScanningHelp"> <img style="height:5rem"
                             src="./img/RadLensTraining/Train_and_Predict.png"
                             alt="click on me to take you to the form box"> </a>
 
 
                     <p>If you want to save your model, click on the Save and Export Model. </p>
-                    <a href="#card_basicInfo_link"> <img style="height:5rem"
+                    <a href="#endOfScanningHelp"> <img style="height:5rem"
                             src="./img/RadLensTraining/Save_and_Export.png"
                             alt="click on me to take you to the form box"> </a>
                     <p>
