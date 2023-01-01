@@ -1,10 +1,1 @@
-{
-    "tfjsVersion": "1.3.1",
-    "tmVersion": "2.2.2",
-    "packageVersion": "0.8.4",
-    "packageName": "@teachablemachine/image",
-    "timeStamp": "2020-07-22T07:41:21.357Z",
-    "userMetadata": {},
-    "modelName": "RadLensAI_Pedia_Brain",
-    "labels": ["Schizencephaly_(Open_Lip)?", "Schizencephaly_(Closed_Lip)?", "Hydranencephaly", "a_lesion.", "a_Brain_CT_or_MRI", "Dandy-Walker_Malformation_axial"]
-}
+{"labels":["PTB_on_X_ray","Normal_Chest_X_ray","Not_a_chest_X_ray"]}

@@ -276,6 +276,8 @@ document.addEventListener("DOMContentLoaded", function () {
         let $mpr = document.querySelector("#mpr");
         let $sensitivityInput = document.querySelector("#sensitivityInput");
         $mpr.value = "./my_model/";
+        // $mpr.value = "https://radedje.github.io/pretrained_models_public/my_model_tb/";
+
         $sensitivityInput.value = "any";
         URL = $mpr.value;
         sensitivity = $sensitivityInput.value
@@ -1033,7 +1035,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 // TODO: SEEMS i don't need to watch for gfab anymore....? i wonder why? decide you you want to keep with the gfab watcher or just go straight to dinall_ddx.innerHTML without the watcher
                 if (gfab.classList.contains("gfab-active")) {
-                    final_ddx.innerHTML = "<p>Please look for a <a href=https://www.google.com/images?q=" + final_ddxSringGsearchTerms + ">" + final_ddxString + "</a>?<br>(Scroll down for more info).</p>";
+                    final_ddx.innerHTML = "<p>Consider <a href=https://www.google.com/images?q=" + final_ddxSringGsearchTerms + ">" + final_ddxString + "</a>?<br>(Scroll down for more info).</p>";
                     card_imageSearch_link.href = "https://www.google.com/images?q=" + final_ddxSringGsearchTerms;
                 }
 
